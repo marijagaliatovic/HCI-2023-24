@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 export default function Home() {
+  
   return (
       <div className="absolute top-20 bg-white flex flex-row justify-between items-center my-4 mx-12">
         <div className="bg-white p-14  m-3 flex flex-col items-center text-center justify-center basis-6/12">
