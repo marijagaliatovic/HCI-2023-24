@@ -9,7 +9,7 @@ export default function Header() {
   const [isLocalServicesOpen, setIsLocalSevicesOpen] =useState(false);
 
   const handleAccomodationClick = () => {
-    setIsAccomodationOpen(!isAccomodationOpen);
+      setIsAccomodationOpen(!isAccomodationOpen); 
   };
 
   const handleInformationClick = () => {
@@ -32,12 +32,12 @@ export default function Header() {
   return (
     <nav onClick={handleNavBarClick} className="fixed w-full z-10 top-0">
       <ul className="flex flex-row justify-center gap-5 pt-10 pl-20 pr-20 pb-5">
-        <li className="text-base font-semibold not-italic tracking-widest hover:underline"><Link href="/">Home</Link></li>
+        <li className="text-base font-semibold not-italic tracking-widest hover:underline cursor-pointer"><Link href="/">Home</Link></li>
 
-        <li className="text-base font-semibold not-italic tracking-widest relative hover:underline"> 
+        <li className="text-base font-semibold not-italic tracking-widest relative hover:underline cursor-pointer"> 
           <a onClick={handleAccomodationClick}>Accomodation</a>
           {isAccomodationOpen && (
-            <ul className="absolute z-10 left-0 mt-2 py-2 w-48 bg-white rounded-md shadow-lg">
+            <ul className="absolute z-10 left-0 mt-2 py-2 w-48 bg-white rounded-md shadow-lg ">
               <li className="block px-4 py-2 text-sm font-semibold hover:underline"><Link href="/apartmentlistings">Apartment Listings</Link></li>
               <li className="block px-4 py-2 text-sm font-semibold hover:underline"><Link href="/specialoffers">Special Offers</Link></li>
               <li className="block px-4 py-2 text-sm font-semibold hover:underline"><Link href="/amenities">Amenities</Link></li>
@@ -46,7 +46,7 @@ export default function Header() {
           )}
         </li>
 
-        <li className="text-base font-semibold not-italic tracking-widest relative hover:underline"> 
+        <li className="text-base font-semibold not-italic tracking-widest relative hover:underline cursor-pointer"> 
           <a onClick={handleInformationClick}>Information</a>
           {isInformationOpen && (
             <ul className="absolute z-10 left-0 mt-2 py-2 w-48 bg-white rounded-md shadow-lg">
@@ -58,7 +58,7 @@ export default function Header() {
           )}
         </li>
 
-        <li className="text-base font-semibold not-italic tracking-widest relative hover:underline"> 
+        <li className="text-base font-semibold not-italic tracking-widest relative hover:underline cursor-pointer"> 
           <a onClick={handleLocalServicesClick}>Local Services</a>
           {isLocalServicesOpen && (
             <ul className="absolute z-10 left-0 mt-2 py-2 w-48 bg-white rounded-md shadow-lg">
@@ -68,7 +68,7 @@ export default function Header() {
           )}
         </li>
         
-        <li className="text-base font-semibold not-italic tracking-widest hover:underline">
+        <li className="text-base font-semibold not-italic tracking-widest hover:underline cursor-pointer">
           <Link href="/contact">Contact us</Link>
         </li>
       </ul>

@@ -9,12 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.2",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "next": "13.5.6",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-responsive-carousel": "^3.2.23",
+    "react-slideshow-image": "^4.3.0"
   },
   "devDependencies": {
+    "@iconify/icons-simple-line-icons": "^1.2.3",
+    "@iconify/react": "^4.1.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
