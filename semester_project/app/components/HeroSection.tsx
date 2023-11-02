@@ -12,7 +12,7 @@ export default function HeroSection(){
               <h1 className="bg-white self-center text-3xl font-bold mb-4">Find Your Perfect Stay</h1>
               <p className="bg-white self-center font-semibold">Whether you prefer the convenience of a well-appointed room or the freedom of a private apartment, we have the perfect accommodation for your needs.</p>
             </div>
-            <i className="decoration-black bg-gray_background text-center not-italic font-semibold hover:underline rounded-2xl mt-2 py-1 px-2"><Link href="/apartmentlistings">Apartmants</Link></i>
+            <i className="decoration-black bg-gray_background text-center not-italic font-semibold hover:underline rounded-2xl mt-2 py-1 px-2"><Link href="/apartmentlistings">Apartments</Link></i>
           </div>
 
           <SlideShow/>  
