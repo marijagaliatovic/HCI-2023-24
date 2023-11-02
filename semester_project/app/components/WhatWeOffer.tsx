@@ -1,9 +1,9 @@
 "use client"
-
+import Image from "next/image"
 export default function WhatWeOffer(){
     return(
         <div className="flex flex-row justify-center h-min mt-12 mx-12 mb-24">
-            <img src="/images/split.jpg" alt="slika"/>
+            <Image src="/public/images/split.jpg" width={300} height={200}  alt="slika"/>
             <div className="bg-white  w-1/2 grid grid-cols-2 grid-rows-2 ">
                 <div className="inline-grid">
                     <p className="bg-slate-200 p-14 text-center font-serif font-medium not-italic tracking-wide">Explore our varied accommodations, from cozy rooms in Split's historic center to stunning sea-view apartments, catering to every traveler's preference.</p>

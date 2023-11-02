@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from "react";
+import Image from "next/image";
 
 const SlideShow = () => {
   const images = [
@@ -22,11 +23,14 @@ const SlideShow = () => {
     <div className="bg-white relative w-full basis-6/12 m-4">
         <div className="py-10 px-8 bg-white">
             {images.map((image, index) => (
-            <img
+            <Image
                 key={index}
                 className={index === slideIndex ? "block" : "hidden"}
                 src={image}
-                alt={`Slide ${index + 1}`}
+                height={200}
+                width={300}
+                alt={`Slide ${index + 1}`
+              }
             />
             ))}
             <div>
