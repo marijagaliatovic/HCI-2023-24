@@ -28,7 +28,7 @@ const SlideShow = () => {
                 className={index === slideIndex ? "block" : "hidden"}
                 src={image}
                 height={200}
-                width={300}
+                width={800}
                 alt={`Slide ${index + 1}`
               }
             />
