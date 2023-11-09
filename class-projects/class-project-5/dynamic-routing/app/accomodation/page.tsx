@@ -36,6 +36,7 @@ export default async function Accomodation() {
             </Link>
           </div>
         ))}
+
       </div>
     </div>
   );
