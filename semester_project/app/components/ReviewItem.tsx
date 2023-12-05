@@ -11,7 +11,7 @@ interface review{
 
 const ReviewItem = (item:review) => {
     return(
-        <div className="bg-stone-200 top-0 flex flex-col items-center relative m-4  w-1/4 p-4">
+        <div className="bg-stone-200 top-0 flex flex-col items-center relative m-8 lg:m-4 lg:w-1/4 lg:p-4">
             <div className="bg-stone-200 flex flex-row justify-center gap-3 pt-5">
                 <Image className="bg-stone-200 rounded-full self-start" height={50} width={100} src={item.picture} alt={item.alt}></Image>
                 <div className="bg-stone-200 flex flex-col justify-start p-2 self-center">
@@ -36,7 +36,7 @@ const ReviewItem = (item:review) => {
                     </div>
                 </div>
             </div>
-            <p className="bg-stone-200 text-center text-xs px-3 m-3 font-bold">{item.text}</p>
+            <p className="bg-stone-200 text-center text-xs px-3 m-3 lg:font-bold">{item.text}</p>
         </div>
                
     )};

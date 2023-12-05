@@ -35,16 +35,18 @@ export default function SpecialOffers(){
 
    
       return (
-        <div className="bg-stone-200 flex flex-col items-center relative mt-12 py-8">
+        <div className="bg-stone-200 flex flex-col items-center relative lg:mt-12 py-8">
 
-        <h2 className="bg-stone-200 self-center font-bold not-italic underline text-2xl mt-5 mb-8">Special Offers</h2>
-        <div className="bg-stone-200 flex flex-row justify-center gap-10">
+        <h2 className="bg-stone-200 self-center font-bold not-italic underline text-xl lg:text-2xl mt-5 mb-3 lg:mb-8">Special Offers</h2>
+        <div className="bg-stone-200 hidden lg:flex flex-col items-center lg:flex-row lg:justify-center lg:gap-10">
             {offers.map((offer,index)=>(
                 <SpecialOfferItem key={index} {...offer}/>
             ))}
         </div>
-
-        <i className="bg-stone-200 not-italic font-bold hover:underline self-end mr-44 cursor-pointer">View all</i>
+        <div className="bg-stone-200 block lg:hidden">
+            <SpecialOfferItem {...offers[2]} />
+        </div>
+        <i className="bg-stone-200 not-italic font-bold hover:underline lg:self-end lg:mr-44 cursor-pointer">View all</i>
         </div>
     )
 }

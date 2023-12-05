@@ -16,6 +16,9 @@ const config: Config = {
       color:{
         'gray_background':'#CACACA',
       },
+      screens: {
+        'lg': '900px',
+      },
     },
   },
   plugins: [],

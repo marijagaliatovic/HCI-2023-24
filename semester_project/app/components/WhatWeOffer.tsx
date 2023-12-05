@@ -5,9 +5,9 @@ import split from "@/public/images/split.jpg";
 export default function WhatWeOffer(){
 
     return(
-        <div className="flex flex-row relative justify-center h-min mt-12">
+        <div className="flex flex-col w-full lg:flex-row relative justify-center h-min lg:mt-12">
             <Image  src={split} width={800} height={200}  alt="slika"/>
-            <div className="bg-white w-1/2 grid grid-cols-2 grid-rows-2 ">
+            <div className="bg-white flex flex-col lg:w-1/2 lg:grid lg:grid-cols-2 lg:grid-rows-2 ">
                 <div className="inline-grid">
                     <p className="bg-slate-200 p-14 text-center font-serif font-medium not-italic tracking-wide">Explore our varied accommodations, from cozy rooms in Split&apos;s historic center to stunning sea-view apartments, catering to every traveler&apos;s preference.</p>
                 </div>

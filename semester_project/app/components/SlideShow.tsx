@@ -21,7 +21,7 @@ const SlideShow = () => {
   };
 
   return (
-    <div className="bg-white relative w-full basis-6/12 p-8 m-4">
+    <div className="bg-white relative w-full basis-6/12 p-0 lg:p-8 lg:m-4">
             {images.map((image, index) => (
             <Image
                 key={index}
@@ -34,9 +34,9 @@ const SlideShow = () => {
             />
             ))}
             <div>
-                <i onClick={prevSlide} className="cursor-pointer absolute top-1/2 left-8 transform -translate-y-1/2 w-auto p-4
+                <i onClick={prevSlide} className="cursor-pointer absolute top-1/2 left-0 lg:left-8 transform -translate-y-1/2 w-auto p-4 lg:p-4
                 text-white font-bold text-lg duration-500 ease-out select-none hover:bg-black hover:bg-opacity-80">&#10094;</i>
-                <i onClick={nextSlide} className="cursor-pointer absolute top-1/2 right-8 transform -translate-y-1/2 w-auto p-4
+                <i onClick={nextSlide} className="cursor-pointer absolute top-1/2 right-0 lg:right-8 transform -translate-y-1/2 w-auto p-4 lg:p-4
                 text-white font-bold text-lg duration-500 ease-out select-none hover:bg-black hover:bg-opacity-80">&#10095;</i>
             </div>
         </div>

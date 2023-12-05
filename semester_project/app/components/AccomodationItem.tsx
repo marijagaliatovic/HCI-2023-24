@@ -11,7 +11,7 @@ interface accomodation{
 
 const AccomodationItem = (item:accomodation) => {
   return (
-            <div className="top-0  w-1/4 bg-white flex flex-col justify-around items-center m-4 hover:shadow-2xl">
+            <div className="top-0  lg:w-1/4 bg-white flex flex-col justify-around items-center m-4 hover:shadow-2xl">
                 <div className="bg-white flex justify-center p-4  m-3 basis-2/4">
                     <Image className="absoulute h-fit w-fit" height={200} width={300} src={item.picture} alt={item.alt}/>
                 </div>

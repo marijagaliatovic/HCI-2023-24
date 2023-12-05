@@ -14,7 +14,7 @@ interface offers {
 
 const SpecialOfferItem = (item:offers) => {
   return (
-    <div className="top-0 scale-90 w-1/4 bg-white flex flex-col justify-around items-center hover:shadow-2xl">
+    <div className="top-0 scale-90 lg:w-1/4 bg-white flex flex-col justify-around items-center hover:shadow-2xl">
       <div className="bg-white flex justify-center p-4 mx-3 mt-3 basis-2/4">
         <Image className="absoulute h-fit w-fit" height={100} width={300} src={item.picture} alt={item.alt} />
       </div>

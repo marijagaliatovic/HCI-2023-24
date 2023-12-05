@@ -28,11 +28,9 @@ export default function Header() {
       setIsLocalSevicesOpen(false);
     }
   };
-
-  const NavItems = ["Home", "Accomodation", "Information", "LocalServices", "Contact us"]
-  
+   
   return (
-    <nav onClick={handleNavBarClick} className="fixed w-full z-10 top-0">
+    <nav onClick={handleNavBarClick} className="hidden fixed w-full z-10 top-0 lg:block">
       <ul className="flex flex-row justify-center gap-5 pt-10 pl-20 pr-20 pb-5">
         <li className="text-base font-semibold not-italic tracking-widest hover:underline cursor-pointer"><Link href="/">Home</Link></li>
 
