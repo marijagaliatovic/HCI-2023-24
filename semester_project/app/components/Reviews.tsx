@@ -13,7 +13,7 @@ export default function Reviews (){
             text:"My recent stay at this apartment was an absolute delight. The space was not only beautifully furnished and spotlessly clean but also thoughtfully equipped with all the amenities I needed for a comfortable and convenient stay. The location was superb, allowing me to easily explore the city and enjoy local attractions. The host was incredibly responsive and made the whole experience seamless. I cant wait to return to this wonderful apartment for my next visit."
         },
         {
-            picture:"/images/ai_james.jpg",
+            picture:"/images/ai_James.jpg",
             alt:"Person 2",
             name:"James",
             apartment:"apartment Grgo",
