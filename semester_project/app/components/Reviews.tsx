@@ -10,7 +10,7 @@ export default function Reviews (){
             name:"Sarah",
             apartment:"apartment Nora",
             stars:5,
-            text:"My recent stay at this apartment was an absolute delight. The space was not only beautifully furnished and spotlessly clean but also thoughtfully equipped with all the amenities I needed for a comfortable and convenient stay. The location was superb, allowing me to easily explore the city and enjoy local attractions. The host was incredibly responsive and made the whole experience seamless. I can't wait to return to this wonderful apartment for my next visit."
+            text:"My recent stay at this apartment was an absolute delight. The space was not only beautifully furnished and spotlessly clean but also thoughtfully equipped with all the amenities I needed for a comfortable and convenient stay. The location was superb, allowing me to easily explore the city and enjoy local attractions. The host was incredibly responsive and made the whole experience seamless. I cant wait to return to this wonderful apartment for my next visit."
         },
         {
             picture:"/images/ai_james.jpg",
@@ -24,7 +24,7 @@ export default function Reviews (){
     return(
     <div className="bg-gray-400 flex flex-col items-center relative mt-12 py-8">
         <h2 className="bg-gray-400  font-bold underline text-2xl self-center">Reviews</h2>
-        <p className="bg-gray-400  font-medium text-center my-4 px-20 mx-48">Discover the stories of our delighted guests who have experienced the comfort and convenience of our apartments. From seamless booking to unforgettable stays, we're thrilled to share their glowing testimonials. Explore the experiences that make us the ultimate choice for your next home away from home!</p>
+        <p className="bg-gray-400  font-medium text-center my-4 px-20 mx-48">Discover the stories of our delighted guests who have experienced the comfort and convenience of our apartments. From seamless booking to unforgettable stays, we&apos;re thrilled to share their glowing testimonials. Explore the experiences that make us the ultimate choice for your next home away from home!</p>
         <div className="bg-gray-400  flex flex-row justify-center gap-10">
           {items.map((item,index)=>(
             <ReviewItem key={index} {...item} />
