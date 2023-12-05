@@ -2,12 +2,13 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
+import image1 from "@/public/images/slika_sobe_1.jpg";
+import image2 from "@/public/images/slika_sobe_2.jpg";
+import image3 from "@/public/images/slika_sobe_3.jpg";
+
+
 const SlideShow = () => {
-  const images = [
-    "/images/slika_sobe_1.jpg",
-    "/images/slika_sobe_2.jpg",
-    "/images/slika_sobe_3.jpg"
-  ];
+  const images = [image1,image2,image3];
 
   const [slideIndex, setSlideIndex] = useState(0);
 
@@ -20,17 +21,16 @@ const SlideShow = () => {
   };
 
   return (
-    <div className="bg-white relative w-full basis-6/12 m-4">
-        <div className="py-10 px-8 bg-white">
+    <div className="bg-white relative w-full basis-6/12 p-8 m-4">
             {images.map((image, index) => (
             <Image
                 key={index}
                 className={index === slideIndex ? "block" : "hidden"}
                 src={image}
-                height={200}
                 width={800}
-                alt={`Slide ${index + 1}`
-              }
+                priority
+                placeholder="blur"
+                alt={`Slide ${index + 1}`}
             />
             ))}
             <div>
@@ -40,9 +40,8 @@ const SlideShow = () => {
                 text-white font-bold text-lg duration-500 ease-out select-none hover:bg-black hover:bg-opacity-80">&#10095;</i>
             </div>
         </div>
-    
-    </div>
   );
 };
+
 
 export default SlideShow;

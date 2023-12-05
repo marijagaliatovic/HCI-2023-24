@@ -29,6 +29,8 @@ export default function Header() {
     }
   };
 
+  const NavItems = ["Home", "Accomodation", "Information", "LocalServices", "Contact us"]
+  
   return (
     <nav onClick={handleNavBarClick} className="fixed w-full z-10 top-0">
       <ul className="flex flex-row justify-center gap-5 pt-10 pl-20 pr-20 pb-5">
