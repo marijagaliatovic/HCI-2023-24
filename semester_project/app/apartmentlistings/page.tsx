@@ -53,7 +53,7 @@ export default function apartmentListings(){
         }
 ]
       return (
-        <div className="flex flex-col lg:flex-row flex-wrap items-center justify-center top-24 relative mx-20 lg:items-stretch">
+        <div className="flex flex-col lg:flex-row flex-wrap items-center justify-center top-8 lg:top-24 relative lg:mx-20 lg:items-stretch">
             {Accomodation.map((items,index)=>(
                  <AccomodationItem  key={index} {...items}/>
             ))}

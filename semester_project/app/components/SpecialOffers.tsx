@@ -14,8 +14,8 @@ export default function SpecialOffers(){
             deal:"80€ night",
         },
         {
-            picture: "/images/slika_sobe_3.jpg",
-            alt:"Image 3",
+            picture: "/images/slika_sobe_5.jpg",
+            alt:"Image 5",
             title:"Apartment Kira",
             location:"Radunica, Split",
             size:"2 bedroom apartment",
@@ -23,8 +23,8 @@ export default function SpecialOffers(){
             deal:"80€ night",
         },
         {
-            picture: "/images/slika_sobe_5.jpg",
-            alt:"Image 5",
+            picture: "/images/slika_sobe_3.jpg",
+            alt:"Image 3",
             title:"Apartment Grgo",
             location:"Varos, Split",
             size:"1 bedroom apartment",
@@ -38,7 +38,7 @@ export default function SpecialOffers(){
         <div className="bg-stone-200 flex flex-col items-center relative lg:mt-12 py-8">
 
         <h2 className="bg-stone-200 self-center font-bold not-italic underline text-xl lg:text-2xl mt-5 mb-3 lg:mb-8">Special Offers</h2>
-        <div className="bg-stone-200 hidden lg:flex flex-col items-center lg:flex-row lg:justify-center lg:gap-10">
+        <div className="bg-stone-200 hidden lg:flex flex-col items-center lg:flex-row lg:justify-center lg:items-stretch lg:gap-10">
             {offers.map((offer,index)=>(
                 <SpecialOfferItem key={index} {...offer}/>
             ))}
