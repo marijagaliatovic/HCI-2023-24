@@ -14,7 +14,6 @@ const gqAllApartmentsQuery = `query getAllApartments{
   }
 `;
 
-
 interface apartmentsCollectionResponse {
     apartmentsCollection: {
         items: apartmentsItem[];
@@ -46,7 +45,7 @@ const getAllApartments =async (): Promise<apartmentsItem[]> => {
         });
         const body = (await response.json()) as {data: apartmentsCollectionResponse}
 
-        const apartments:apartmentsItem[] = body.data.apartmentsCollection.items.map(
+        const apartmentsCollection = body.data.apartmentsCollection.items.map(
             (item)=>({
             title:item.title,
             picture:item.picture,
@@ -54,23 +53,11 @@ const getAllApartments =async (): Promise<apartmentsItem[]> => {
             size:item.size,
             price:item.price
         }));
-        return apartments;
+        return apartmentsCollection;
     } catch(error){
         console.error("Error fetching apartments:", error);
         return [];
     }
 };
-
-    getAllApartments()
-  .then(apartments => {
-    // Successfully fetched apartments
-    console.log('Apartments:', apartments);
-    // Perform further actions with the apartments
-  })
-  .catch(error => {
-    // Error occurred during the fetch
-    console.error('Error fetching apartments:', error);
-    // Handle the error or provide user feedback
-  });
 
 export default getAllApartments;
