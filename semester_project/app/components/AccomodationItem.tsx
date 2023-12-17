@@ -15,7 +15,7 @@ const AccomodationItem = (item:accomodation) => {
   return (
             <div className="top-0 w-3/4 lg:w-1/4 bg-white flex flex-col justify-around items-center m-4 hover:shadow-2xl">
                 <div className="bg-white flex justify-center p-4  m-3 basis-2/4">
-                    <Image className="object-fill" height={200} width={300} src={item.picture.url} alt={item.picture.title}/>
+                    <Image className="h-max" height={200} width={300} src={item.picture.url} alt={item.picture.title}/>
                 </div>
                 <div className="bg-white relative basis-6/12 w-8/12 m-4 flex flex-col justify-between gap-1 text-center ">
                     <h3 className="bg-white self-center text-2xl font-bold mb-4 hover:underline cursor-pointer font-serif not-italic tracking-widest">{item.title}</h3>
