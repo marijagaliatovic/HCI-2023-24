@@ -5,7 +5,6 @@ import Link from 'next/link'
 import Header from './components/Header'
 import NavBar from './components/NavBar'
 
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {

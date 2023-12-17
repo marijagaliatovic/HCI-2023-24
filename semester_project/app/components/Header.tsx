@@ -71,6 +71,10 @@ export default function Header() {
         <li className="text-base font-semibold not-italic tracking-widest hover:underline cursor-pointer">
           <Link href="/contact">Contact us</Link>
         </li>
+
+        <li className="text-base font-semibold not-italic tracking-widest hover:underline cursor-pointer">
+          <Link href="/signup">Sign up</Link>
+        </li>
       </ul>
     </nav>
   );

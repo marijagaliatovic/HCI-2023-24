@@ -25,3 +25,11 @@ body {
   height: 200vh;
   position: relative;
 }
+
+.small-line {
+  width: 50px;
+  height: 2px; 
+  background-color: #000; 
+  margin-top: 5px;
+  margin-bottom:10px;
+}

@@ -1,7 +1,10 @@
 import Image from "next/image";
 
 interface review{
-    picture:string;
+    picture:{
+        title:string;
+        url:string;
+    }
     alt:string;
     name:string;
     apartment:string;
@@ -10,29 +13,38 @@ interface review{
 }
 
 const ReviewItem = (item:review) => {
+    const renderStars = () => {
+        const starElements = [];
+        const totalStars = 5; // Total number of stars
+      
+        for (let i = 0; i < totalStars; i++) {
+          const isFilled = i < item.stars; // Check if the star should be filled
+      
+          starElements.push(
+            <svg
+              key={i}
+              className={`bg-stone-200 w-8 h-8 stroke-black stroke-1 ${isFilled ? "fill-black" : "border-black"}`}
+              aria-hidden="true"
+              fill={isFilled ? "black" : "none"} // Fill black if it should be filled, otherwise none
+              viewBox="0 0 22 20"
+            >
+              <path
+                d="M11 2l1.98 4.017 4.472.65-3.243 3.15.766 4.45-4.016-2.11-4.017 2.11.765-4.45-3.243-3.15 4.471-.65z"
+              />
+            </svg>
+          );
+        }
+        return starElements;
+      };
     return(
         <div className="bg-stone-200 top-0 flex flex-col items-center relative m-8 lg:m-4 lg:w-1/4 lg:p-4">
             <div className="bg-stone-200 flex flex-row justify-center gap-3 pt-5">
-                <Image className="bg-stone-200 rounded-full self-start" height={50} width={100} src={item.picture} alt={item.alt}></Image>
+                <Image className="bg-stone-200 rounded-full self-start" height={50} width={100} src={item.picture.url} alt={item.picture.title}></Image>
                 <div className="bg-stone-200 flex flex-col justify-start p-2 self-center">
                     <p className="bg-stone-200 font-extrabold text-lg">{item.name}</p>
                     <p className="bg-stone-200 font-bold text-base">for <span className="bg-stone-200 font-extrabold text-base">{item.apartment}</span></p>
                     <div className="bg-stone-200 flex items-center my-2">
-                        <svg className="bg-stone-200 w-5 h-5 stroke-black stroke-1" aria-hidden="true" fill="black" viewBox="0 0 22 20">
-                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                        </svg>
-                        <svg className="bg-stone-200 w-5 h-5 stroke-black stroke-1 ms-1" aria-hidden="true" fill="black" viewBox="0 0 22 20">
-                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                        </svg>
-                        <svg className="bg-stone-200 w-5 h-5 stroke-black stroke-1 ms-1" aria-hidden="true" fill="black" viewBox="0 0 22 20">
-                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                        </svg>
-                        <svg className="bg-stone-200 w-5 h-5 stroke-black stroke-1 ms-1" aria-hidden="true" fill="black" viewBox="0 0 22 20">
-                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                        </svg>
-                        <svg className="bg-stone-200 w-5 h-5 stroke-black stroke-1 text-white ms-1" aria-hidden="true" fill="black" viewBox="0 0 22 20">
-                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                        </svg>
+                    <div className="bg-stone-200 flex items-center my-2">{renderStars()}</div>
                     </div>
                 </div>
             </div>
