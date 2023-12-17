@@ -1,3 +1,5 @@
+import { space } from "postcss/lib/list";
+
 const gqAllApartmentsQuery = `query getAllApartments{
     apartmentsCollection {
       items {
@@ -33,6 +35,7 @@ interface apartmentsItem{
 
 const baseUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master`;
 
+
 const getAllApartments =async (): Promise<apartmentsItem[]> => {
     try{
         const response = await fetch(baseUrl, {
@@ -61,3 +64,5 @@ const getAllApartments =async (): Promise<apartmentsItem[]> => {
 };
 
 export default getAllApartments;
+
+console.log(space);
