@@ -18,6 +18,7 @@ const config: Config = {
       },
       screens: {
         'lg': '900px',
+        'md': '450px',
       },
     },
   },
