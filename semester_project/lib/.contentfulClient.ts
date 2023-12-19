@@ -48,6 +48,8 @@ const getAllApartments =async (): Promise<apartmentsItem[]> => {
         });
         const body = (await response.json()) as {data: apartmentsCollectionResponse}
 
+        console.log(body);
+
         const apartmentsCollection = body.data.apartmentsCollection.items.map(
             (item)=>({
             title:item.title,
