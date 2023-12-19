@@ -1,5 +1,5 @@
 import ReviewItem from "../components/ReviewItem";
-import getAllReviews from "@/lib/contentfulUtils";
+import getAllReviews from "@/lib/contentfulAllReviews";
 
 
 const Reviews = async () => {
