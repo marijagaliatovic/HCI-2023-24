@@ -41,7 +41,7 @@ export default function page() {
           </div>
         </form>
         <p className="bg-white mt-10 text-center py-5 text-sm text-gray-300">
-          Don't have an account?&nbsp;
+          Don&apos;t have an account?&nbsp;
           <Link href="/signup">
             <span className="bg-white font-semi-old hover:underline">
               Sign up here
