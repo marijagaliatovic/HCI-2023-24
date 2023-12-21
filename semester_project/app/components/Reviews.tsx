@@ -3,7 +3,7 @@ import ReviewItem from "./ReviewItem";
 import getTwoReviews from "@/lib/cotentfulTwoReviews";
 
 const Reviews = async () => {
-    const reviews = await getTwoReviews();
+  const reviews = await getTwoReviews();
 
   return (
     <div className="bg-gray-400 flex flex-col items-center relative lg:mt-12 py-8">
@@ -23,11 +23,16 @@ const Reviews = async () => {
           <ReviewItem key={index} {...item} />
         ))}
       </div>
-      <i className="bg-gray-400 not-italic font-bold hover:underline  lg:self-end lg:mr-44 cursor-pointer"><Link href="/reviews" className="bg-gray-400">View all</Link>
-        
+      <div className="bg-gray-400 block lg:hidden">
+        {<ReviewItem key={0} {...reviews[0]} />}
+      </div>
+      <i className="bg-gray-400 not-italic font-bold hover:underline  lg:self-end lg:mr-44 cursor-pointer">
+        <Link href="/reviews" className="bg-gray-400">
+          View all
+        </Link>
       </i>
     </div>
   );
-}
+};
 
 export default Reviews;
