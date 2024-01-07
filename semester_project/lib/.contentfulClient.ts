@@ -1,4 +1,3 @@
-import { space } from "postcss/lib/list";
 
 const gqAllApartmentsQuery = `query getAllApartments{
     apartmentsCollection {
@@ -10,19 +9,21 @@ const gqAllApartmentsQuery = `query getAllApartments{
         title
         location
         size
-        price
+        priceNumber
+        apartment
+        room
       }
     }
   }
 `;
-
-interface apartmentsCollectionResponse {
+ 
+export interface apartmentsCollectionResponse {
     apartmentsCollection: {
         items: apartmentsItem[];
     }
 }
 
-interface apartmentsItem{
+export interface apartmentsItem{
     picture:{
         title:string;
         url:string;
@@ -30,7 +31,9 @@ interface apartmentsItem{
       title:string;
       location:string;
       size:string;
-      price:string;
+      priceNumber:number;
+      apartment:boolean;
+      room:boolean;
 }
 
 const baseUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master`;
@@ -48,16 +51,18 @@ const getAllApartments =async (): Promise<apartmentsItem[]> => {
         });
         const body = (await response.json()) as {data: apartmentsCollectionResponse}
 
-        console.log(body);
-
         const apartmentsCollection = body.data.apartmentsCollection.items.map(
             (item)=>({
             title:item.title,
             picture:item.picture,
             location:item.location,
             size:item.size,
-            price:item.price
+            priceNumber:item.priceNumber,
+            room:item.room,
+            apartment:item.apartment,
         }));
+
+        
         return apartmentsCollection;
     } catch(error){
         console.error("Error fetching apartments:", error);
@@ -65,6 +70,11 @@ const getAllApartments =async (): Promise<apartmentsItem[]> => {
     }
 };
 
-export default getAllApartments;
 
-console.log(space);
+
+const contentfulService = {
+    getAllApartments,
+}
+
+export default contentfulService;
+

@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "react-date-range": "^2.0.0-alpha.4"
+  },
+  "devDependencies": {
+    "@types/react-date-range": "^1.4.9"
+  }
+}

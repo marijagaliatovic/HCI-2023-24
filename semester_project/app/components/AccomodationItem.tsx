@@ -8,7 +8,9 @@ interface accomodation{
     title:string;
     location:string;
     size:string;
-    price:string;
+    priceNumber:number;
+    apartment:boolean;
+    room:boolean;
 }
 
 const AccomodationItem = (item:accomodation) => {
@@ -25,7 +27,7 @@ const AccomodationItem = (item:accomodation) => {
                         </div>
                         <div className="flex flex-col text-center bg-white">
                             <p className="bg-white self-center font-serif font-medium not-italic tracking-wide">{item.size}</p>
-                            <p className="bg-white self-center font-serif font-medium not-italic tracking-wide">{item.price}</p>
+                            <p className="bg-white self-center font-serif font-medium not-italic tracking-wide">{item.priceNumber}€ per night</p>
                         </div>
                     </div>
                 </div>

@@ -70,4 +70,3 @@ const getAllReviews = async (): Promise<reviewsItem[]> => {
 
 export default getAllReviews;
 
-console.log(space);
