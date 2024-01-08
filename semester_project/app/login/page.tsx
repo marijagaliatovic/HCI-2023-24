@@ -1,11 +1,12 @@
 import Link from "@/node_modules/next/link";
 import { SetStateAction, useState } from "react";
+import Footer from "../components/Footer";
 
 export default function page() {
   return (
     <div className="max-w-2xl mx-auto my-auto flex flex-col px-1 pt-10 lg:px-4 bg-white mt-10 sticky top-24">
       <div className="bg-white sm:mx-auto sm:w-full sm:max-w-sm">
-        <h2 className="bg-white mt-5 text-center text-2xl font-bold leading-9 tracking-tight">
+        <h2 className="bg-white mt-8 text-center text-2xl font-bold leading-9 tracking-tight">
           Log in
         </h2>
       </div>
@@ -50,5 +51,6 @@ export default function page() {
         </p>
       </div>
     </div>
+    
   );
 }

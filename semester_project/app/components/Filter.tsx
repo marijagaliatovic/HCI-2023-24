@@ -1,5 +1,5 @@
 import { XMarkIcon } from "@heroicons/react/24/solid";
-import { useState,Dispatch, SetStateAction } from "react";
+import { useState,Dispatch, SetStateAction, useEffect } from "react";
 import { apartmentsItem } from "@/lib/.contentfulClient";
 import contentfulService from "@/lib/.contentfulClient";
 
@@ -20,10 +20,6 @@ export default function Filter({setData,data}:FilterProps){
         setIsFiltersOpen(!isFiltersOpen);
     }
 
-    const closeFilter = () =>{
-        setIsFiltersOpen(false);
-    }
-
     const handleNumberOfRoomsClick = (num:number) => {
         setNumberOfRooms(num);
     }
@@ -41,6 +37,25 @@ export default function Filter({setData,data}:FilterProps){
     const handleTypeClick = (option:number) =>{
        setType(option);
     }
+
+    useEffect(()=>{
+        const handleClickOutside = (event:MouseEvent)=>{
+            const dropdown = document.getElementById("filterDropdown");
+            const filters = document.getElementById("filters");
+            
+            //if dropdown is open and we click outside of dropdown and filters button, close the dropdown
+            if(dropdown && !dropdown.contains(event.target as Node) && filters && !filters.contains(event.target as Node)) //If dropdown is not clicked (if event target is not on the dropdown ); Node is interface for nodes in DOM
+            {
+                setIsFiltersOpen(false); //If we click outside of the filter container it will close it
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside); //if we click anywhere on the document handleClickOutside is called
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        }
+    });
 
     const applyFilters = () => {
         let apartments = data.slice();
@@ -74,25 +89,41 @@ export default function Filter({setData,data}:FilterProps){
 
         apartments = apartments.filter(item => (item.priceNumber >= min && item.priceNumber <= max));
 
-        setData(apartments);       
+        setData(apartments);
+        setIsFiltersOpen(false);       
     }
 
     const resetFilters = () =>{
-        setMin(50);
-        setMax(130);
+        
         setType(0);
         setNumberOfRooms(4);
+        
+        setMin(50);
+        setMax(130);
+
+        const minInput = document.getElementById("min") as HTMLInputElement; //can't use .value without as HTMLInputElement;
+        const maxInput = document.getElementById("max") as HTMLInputElement;
+
+        if(minInput)
+        {
+            minInput.value = "50";
+        }
+
+        if(maxInput)
+        {
+            maxInput.value = "130";
+        }
+
         setData(data);
-        setIsFiltersOpen(false);
     }
     return(
         <>
-        <div className="bg-white relative flex flex-row px-4 m-1 rounded-full justify-center gap-1 lg:items-center hover:underline cursor-pointer" onClick={handleFiltersClick}>
+        <div id="filters" className="bg-white relative flex flex-row px-4 m-1 rounded-full justify-center gap-1 lg:items-center hover:underline cursor-pointer" onClick={handleFiltersClick}>
             <svg className="bg-white color: rgb(0, 0, 0);" height="25" viewBox="0 0 21 21" width="25" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" transform="translate(2 4)"><path d="m4.5 0c.55228475 0 1 .44771525 1 1v2c0 .55228475-.44771525 1-1 1s-1-.44771525-1-1v-2c0-.55228475.44771525-1 1-1z" fill="#000000"></path><path d="m16.5 2h-11" fill="#000000"></path><path d="m3.5 2h-3" fill="#000000"></path><path d="m4.5 10c.55228475 0 1 .4477153 1 1v2c0 .5522847-.44771525 1-1 1s-1-.4477153-1-1v-2c0-.5522847.44771525-1 1-1z" fill="#000000"></path><path d="m16.5 12h-11" fill="#000000"></path><path d="m3.5 12h-3" fill="#000000"></path><path d="m12.5 5c.5522847 0 1 .44771525 1 1v2c0 .55228475-.4477153 1-1 1s-1-.44771525-1-1v-2c0-.55228475.4477153-1 1-1z" fill="#000000"></path><path d="m11.5 7h-11" fill="#000000"></path><path d="m16.5 7h-3" fill="#000000" onClick={handleFiltersClick}></path></g></svg>
             <p className="bg-white font-bold" >Filters</p>
         </div>
         {(isFiltersOpen && (
-            <div className="bg-slate-400 absolute z-10 top-10 flex flex-col lg:w-max w-7/8 h-max lg:h-max shadow-lg p-4 rounded-md m-5">
+            <div  id="filterDropdown" className="bg-slate-400 absolute z-10 top-10 flex flex-col lg:w-max w-7/8 h-max lg:h-max shadow-lg p-4 rounded-md m-5">
                 <div className="bg-transparent flex flex-row items-center justify-start gap-48 border-b-2 border-slate-200 px-2 pb-3">
                     <div className="bg-transparent hover:bg-slate-200  rounded-full p-1"onClick={handleFiltersClick}><XMarkIcon className="w-4 h-4 bg-transparent"/></div>
                     <p className="bg-transparent font-bold ">Filters</p>
@@ -122,12 +153,12 @@ export default function Filter({setData,data}:FilterProps){
                     <span className="bg-slate-400 mx-10 my-1 font-bold tracking-wide">Price range</span>
                     <div className="bg-slate-500 relative p-4 rounded-md shadow-lg flex flex-col lg:flex-row mx-10 justify-center items-center gap-2 cursor-pointer">
                         <div className="flex flex-col justify-center items-center bg-slate-500 text-sm basis-1/3">
-                            <label className="bg-transparent block mb-2 text-sm text-centerfont-medium text-gray-900">Minimum</label>
-                            <input className="text-gray-900 text-sm rounded-lg text-center block p-2.5 placeholder-black w-1/2 bg-slate-400 min" type="text" name="Min" placeholder={min.toString()} onChange={useMin}/>
+                            <label  className="bg-transparent block mb-2 text-sm text-centerfont-medium text-gray-900">Minimum</label>
+                            <input  id="min" className="text-gray-900 text-sm rounded-lg text-center block p-2.5 placeholder-black w-1/2 bg-slate-400 min" type="text" name="Min" placeholder={min.toString()} onChange={useMin}/>
                         </div>
                         <div className="flex flex-col justify-center items-center  bg-slate-500 text-sm basis-1/3">
                             <label className="bg-transparent block mb-2 text-sm font-medium text-center text-gray-900">Maximum</label>
-                            <input className="text-gray-900 text-sm rounded-lg text-center block p-2.5 placeholder-black w-1/2 bg-slate-400 max" type="text" name="Max" placeholder={max.toString()} onChange={useMax}/>
+                            <input id="max" className="text-gray-900 text-sm rounded-lg text-center block p-2.5 placeholder-black w-1/2 bg-slate-400 max" type="text" name="Max" placeholder={max.toString()} onChange={useMax}/>
                         </div>
                     </div>
                  </div>
