@@ -25,12 +25,12 @@ export default function SpecialOffers() {
 
  
   return (
-    <div className="bg-stone-200 flex flex-col items-center  relative lg:mt-12 py-8">
+    <div className="bg-stone-200 flex flex-col items-center justify-center relative lg:mt-12 py-8">
       <h2 className="bg-stone-200 self-center font-bold not-italic text-xl lg:text-2xl mt-5 lg:mb-2">
         Special Offers
       </h2>
       <div className="small-line"></div>
-      <div className="bg-stone-200 lg:flex lg:gap-10 hidden lg:flex-row lg:justify-center lg:w-4/5 lg:relative lg:mx-20 lg:mt-4 lg:items-strech">
+      <div className="bg-stone-200 lg:flex lg:gap-10 hidden lg:flex-row justify-center lg:w-4/5 lg:relative lg:mx-20 lg:mt-4 lg:items-strech">
         {offers.slice(1,4).map((offer, index) => (
           <SpecialOfferItem key={index} {...offer} />
         ))}
@@ -40,7 +40,7 @@ export default function SpecialOffers() {
           <SpecialOfferItem key={index} {...offer} />
         ))}
       </div>
-      <div className="bg-stone-200 w-3/4 lg:hidden md:hidden ">
+      <div className="bg-stone-200 w-3/4 lg:hidden md:hidden justify-center ">
         {offers.slice(1,2).map((offer, index) => (
           <SpecialOfferItem key={index} {...offer} />
         ))}

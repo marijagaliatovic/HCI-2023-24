@@ -15,7 +15,7 @@ interface offers {
 
 const SpecialOfferItem = (item:offers) => {
   return (
-    <div className="top-0 w-full lg:w-1/4 md:w-1/2 bg-white flex flex-col justify-around items-center m-4 hover:shadow-2xl">
+    <div className="top-0 w-full lg:w-1/4 md:w-1/2 bg-white flex flex-col items-center hover:shadow-2xl">
     <div className="bg-white relative mt-6 lg:w-4/5 w-3/4  md:h-44 h-36 lg:h-44">
        <Image  fill={true} src={item.picture.url} alt={item.picture.title} />
    </div>
