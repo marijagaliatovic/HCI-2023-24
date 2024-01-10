@@ -39,12 +39,12 @@ const DateRange = () => {
   
 
   return (
-     <div className="bg-white flex w-max rounded-md lg:flex-row center items-center py-2 px-4 border lg:rounded-full ">
+     <div className="bg-white flex w-max lg:w-max md:w-full md:justify-around rounded-md lg:flex-row center items-center py-2 px-4 border lg:rounded-full cursor-pointer shadow-lg">
         <div className="bg-white relative p-2 font-bold rounded-full border-r-4 cursor-pointer hover:underline"  >
             <p className="bg-white"onClick={handleCheckInClick}>Dates</p>
         {
             (isCheckInOpened && <DateRangePicker className="absolute z-10 -left-3/4 mt-6 customDataRangePicker  shadow-2xl " onChange={(item) => setState([item.selection])}
-                moveRangeOnFirstSelection={false} months={2} ranges={state} direction="horizontal"/>)
+                moveRangeOnFirstSelection={false} months={2} ranges={state} direction="vertical"/>)
         }
         
         </div>

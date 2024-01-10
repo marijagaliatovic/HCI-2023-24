@@ -28,7 +28,7 @@ const SpecialOfferItem = (item:offers) => {
            <div className="flex flex-col text-center bg-white">
                <p className="bg-white self-center font-serif font-medium not-italic tracking-wide">{item.size}</p>
                <p className="bg-white self-center font-serif font-medium not-italic tracking-wide line-through">{item.priceNumber}€ per night</p>
-               <p className="bg-white self-center font-serif font-medium not-italic tracking-wide">{item.specialOffer}€ per night</p>
+               <p className="bg-white self-center font-serif font-bold not-italic tracking-wide">{item.specialOffer}€ per night</p>
            </div>
        </div>
    </div>

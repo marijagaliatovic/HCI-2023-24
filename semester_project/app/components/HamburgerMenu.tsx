@@ -27,7 +27,7 @@ export default function HamburgerMenu({ open, clickHandler }: HamburgerProps) {
     
   return (
     <>
-      <div className="bg-transparent lg:hidden hover:cursor-pointer p-2 z-50" 
+      <div className="bg-transparent lg:hidden hover:cursor-pointer p-2 z-50 w-max" 
         onClick={() => {
                 clickHandler(!open);
                 handleNavBarClick();
