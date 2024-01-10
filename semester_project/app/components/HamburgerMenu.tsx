@@ -8,75 +8,46 @@ export type HamburgerProps = {
 };
 
 export default function HamburgerMenu({ open, clickHandler }: HamburgerProps) {
-    const [isAccomodationOpen, setIsAccomodationOpen] = useState(false);
-    const [isInformationOpen, setIsInformationOpen] =useState(false);
-    const [isLocalServicesOpen, setIsLocalSevicesOpen] =useState(false);
+    const [isAccommodationOpen, setIsAccommodationOpen] = useState(false);
   
-    const handleAccomodationClick = () => {
-        setIsAccomodationOpen(!isAccomodationOpen); 
+    const handleAccommodationHover = () => {
+      setIsAccommodationOpen(true);
     };
   
-    const handleInformationClick = () => {
-      setIsInformationOpen(!isInformationOpen);
+    const handleAccommodationLeave = () => {
+      setIsAccommodationOpen(false);
     };
-  
-    const handleLocalServicesClick = () => {
-      setIsLocalSevicesOpen(!isLocalServicesOpen);
-    };
-  
+
     const handleNavBarClick = () => {
-      if(isAccomodationOpen || isInformationOpen || isLocalServicesOpen )
+      if(isAccommodationOpen)
       {
-        setIsAccomodationOpen(false);
-        setIsInformationOpen(false);
-        setIsLocalSevicesOpen(false);
+        setIsAccommodationOpen(false);
       }
     };
     
   return (
     <>
-      <div className="lg:hidden hover:cursor-pointer p-2 z-50" 
+      <div className="bg-transparent lg:hidden hover:cursor-pointer p-2 z-50" 
         onClick={() => {
                 clickHandler(!open);
                 handleNavBarClick();
             }}>
-        <Bars3Icon className={`w-8 h-8 ${open ? "hidden" : "block"}`} />
-        <XMarkIcon className={`w-8 h-8 ${open ? "block" : "hidden"}`} />
+        <Bars3Icon className={` bg-transparent w-6 h-6 ${open ? "hidden" : "block"}`} />
+        <XMarkIcon className={`bg-transparent w-4 h-4 ${open ? "block" : "hidden"}`} />
       </div>
       <nav className={`flex lg:hidden items-center justify-center hover:cursor-pointer p-10 w-screen absolute top-0 right-0 z-20 opacity-95 ${open ? "block" : "hidden"} `} onClick={handleNavBarClick}>
         <ul className="flex flex-col justify-start items-start gap-5 p-10 pb-5">
         <li className="text-base font-semibold not-italic tracking-widest hover:underline cursor-pointer"><Link href="/">Home</Link></li>
 
-        <li className="text-base font-semibold not-italic tracking-widest relative hover:underline cursor-pointer"> 
-          <a onClick={handleAccomodationClick}>Accomodation</a>
-          {isAccomodationOpen && (
-            <ul className="absolute z-10 left-0 mt-2 py-2 w-48 bg-white rounded-md shadow-lg">
+        <li className="text-base font-semibold not-italic tracking-widest relative hover:underline cursor-pointer" 
+          onMouseEnter={handleAccommodationHover}
+          onMouseLeave={handleAccommodationLeave}> 
+          <a>Accomodation</a>
+          {isAccommodationOpen && (
+            <ul className="absolute z-10 left-0 py-2 w-max  bg-white rounded-md shadow-2xl ">
               <li className="block px-4 py-2 text-sm font-semibold hover:underline"><Link href="/apartmentlistings">Apartment Listings</Link></li>
               <li className="block px-4 py-2 text-sm font-semibold hover:underline"><Link href="/specialoffers">Special Offers</Link></li>
-              <li className="block px-4 py-2 text-sm font-semibold hover:underline"><Link href="/amenities">Amenities</Link></li>
               <li className="block px-4 py-2 text-sm font-semibold hover:underline"><Link href="/reviews">Reviews</Link></li>
-            </ul>
-          )}
-        </li>
-
-        <li className="text-base font-semibold not-italic tracking-widest relative hover:underline cursor-pointer"> 
-          <a onClick={handleInformationClick}>Information</a>
-          {isInformationOpen && (
-            <ul className="absolute z-10 left-0 mt-2 py-2 w-48 bg-white rounded-md shadow-lg">
-              <li className="block px-4 py-2 text-sm font-semibold hover:underline"><Link href="/">Booking Process</Link></li>
-              <li className="block px-4 py-2 text-sm font-semibold hover:underline"><Link href="/">Cancellation Policies</Link></li>
-              <li className="block px-4 py-2 text-sm font-semibold hover:underline"><Link href="/">Guest Rules</Link></li>
-              <li className="block px-4 py-2 text-sm font-semibold hover:underline"><Link href="/">FAQ</Link></li>
-            </ul>
-          )}
-        </li>
-
-        <li className="text-base font-semibold not-italic tracking-widest relative hover:underline cursor-pointer"> 
-          <a onClick={handleLocalServicesClick}>Local Services</a>
-          {isLocalServicesOpen && (
-            <ul className="absolute z-10 left-0 mt-2 py-2 w-48 bg-white rounded-md shadow-lg">
-              <li className="block px-4 py-2 text-sm font-semibold hover:underline"><Link href="/">Tourist Agencies</Link></li>
-              <li className="block px-4 py-2 text-sm font-semibold hover:underline"><Link href="/">Rent a Car</Link></li>
             </ul>
           )}
         </li>

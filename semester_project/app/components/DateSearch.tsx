@@ -16,11 +16,11 @@ const DateRange = () => {
         SetIsCheckInOpened(!isCheckInOpened);
     }
 
-    const handleCheckOutClick = () => {
+    /* const handleCheckOutClick = () => {
         SetIsCheckInOpened(!isCheckInOpened);
         SetIsGuestsOpened(false);
         SetIsCheckOutOpened(!isCheckOutOpened);
-    }
+    } */
 
     const handleGuestsClick = () => {
         SetIsCheckInOpened(false);
@@ -39,16 +39,16 @@ const DateRange = () => {
   
 
   return (
-     <div className="bg-white flex lg:flex-row center items-center py-2 px-4 border rounded-full">
+     <div className="bg-white flex w-max rounded-md lg:flex-row center items-center py-2 px-4 border lg:rounded-full ">
         <div className="bg-white relative p-2 font-bold rounded-full border-r-4 cursor-pointer hover:underline"  >
-            <p className="bg-white"onClick={handleCheckInClick}>Check in</p>
+            <p className="bg-white"onClick={handleCheckInClick}>Dates</p>
         {
             (isCheckInOpened && <DateRangePicker className="absolute z-10 -left-3/4 mt-6 customDataRangePicker  shadow-2xl " onChange={(item) => setState([item.selection])}
                 moveRangeOnFirstSelection={false} months={2} ranges={state} direction="horizontal"/>)
         }
         
         </div>
-        <div className="bg-white p-2 font-bold rounded-full border-r-4 cursor-pointer hover:underline" onClick={handleCheckOutClick}>Check out</div>
+       
         <div className="bg-white relative p-2 mr-3 font-bold rounded-full border-r-4 cursor-pointer hover:underline" onClick={handleGuestsClick}>
             <p className="bg-white">Guests</p>
             {

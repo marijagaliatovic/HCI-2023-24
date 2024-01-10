@@ -10,12 +10,12 @@ interface accomodation{
     size:string;
     priceNumber:number;
     apartment:boolean;
-    room:boolean;
+    specialOffer:number;
 }
 
 const AccomodationItem = (item:accomodation) => {
   return (
-            <div className="top-0 w-3/4 lg:w-1/4 md:w-1/2 bg-white flex flex-col justify-around items-center m-4 hover:shadow-2xl">
+            <div className="top-0 w-full lg:w-1/4 md:w-1/2 bg-white flex flex-col justify-around items-center m-4 hover:shadow-2xl">
                  <div className="bg-white relative mt-6 lg:w-4/5 w-3/4  md:h-44 h-36 lg:h-44">
                     <Image  fill={true} src={item.picture.url} alt={item.picture.title} />
                 </div>
@@ -27,7 +27,11 @@ const AccomodationItem = (item:accomodation) => {
                         </div>
                         <div className="flex flex-col text-center bg-white">
                             <p className="bg-white self-center font-serif font-medium not-italic tracking-wide">{item.size}</p>
-                            <p className="bg-white self-center font-serif font-medium not-italic tracking-wide">{item.priceNumber}€ per night</p>
+                            <p className={` bg-white self-center font-serif font-medium not-italic tracking-wide ${item.specialOffer !==0 ? "line-through" : ""}`}>{item.priceNumber}€ per night</p>
+                            {item.specialOffer !== 0 ? 
+                            (<p className="bg-white self-center font-serif font-medium not-italic tracking-wide">{item.specialOffer}€ per night</p>) 
+                            : <> </>}
+
                         </div>
                     </div>
                 </div>
