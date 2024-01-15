@@ -32,7 +32,7 @@ export default function contact() {
             <h2 className="font-bold text-xl lg:text-2xl self-center mt-10 top-24">Contact Us</h2>
             <div className="small-line"></div>
             <p className="font-medium text-sm lg:text-lg text-center px-6 my-4 lg:px-20 lg:mx-48">
-            We'd love to hear from you! Whether you have a question, suggestion, or just want to say hello, feel free to reach out to us using the form below.
+            We&apos;d love to hear from you! Whether you have a question, suggestion, or just want to say hello, feel free to reach out to us using the form below.
           </p>
             </div>
             <form onSubmit={handleSubmit} className="bg-stone-200 mb-20 sm:mx-auto sm:w-full max-w-md mx-auto px-10 py-10">
