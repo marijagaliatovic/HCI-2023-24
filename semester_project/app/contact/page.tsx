@@ -30,38 +30,38 @@ export default function Contact() {
         <div className="flex flex-col items-center relative lg:mt-12 py-8">
             <h2 className="font-bold text-xl lg:text-2xl self-center mt-10 top-24">Contact Us</h2>
             <div className="small-line"></div>
-            <p className="font-medium text-sm lg:text-lg text-center px-6 my-4 lg:px-20 lg:mx-48">
+            <p className="font-medium text-sm lg:text-base text-center px-6 my-4 lg:px-60 lg:mx-48">
             We&apos;d love to hear from you! Whether you have a question, suggestion, or just want to say hello, feel free to reach out to us using the form below.
           </p>
             </div>
-            <form onSubmit={handleSubmit} className="bg-stone-200 mb-20 sm:mx-auto sm:w-full max-w-md mx-auto px-10 py-10">
-                    <label className="bg-stone-200 block mb-2 text-sm font-semibold">Username:</label>
+            <form onSubmit={handleSubmit} className="bg-white mb-20 sm:mx-auto sm:w-full max-w-md mx-auto px-10 py-10 rounded-md shadow-lg">
+                    <label className="bg-white block mb-2 text-sm font-semibold">Username:</label>
                     <input
                         type="text"
                         value={username}
                         onChange={handleUsernameChange}
-                        className="w-full border p-2 rounded-md"
+                        className="w-full border p-2 rounded-md bg-white"
                         required
                     />
 
-                    <label className="bg-stone-200 block mt-4 mb-2 text-sm font-semibold">Email:</label>
+                    <label className="bg-white block mt-4 mb-2 text-sm font-semibold">Email:</label>
                     <input
                         type="email"
                         value={email}
                         onChange={handleEmailChange}
-                        className="w-full border p-2 rounded-md"
+                        className="w-full border p-2 rounded-md bg-white"
                         required
                     />
 
-                    <label className="bg-stone-200 block mt-4 mb-2 text-sm font-semibold">Message:</label>
+                    <label className="bg-white block mt-4 mb-2 text-sm font-semibold">Message:</label>
                     <textarea
                         value={message}
                         onChange={handleMessageChange}
-                        className="w-full border p-2 rounded-md"
+                        className="w-full border p-2 rounded-md bg-white"
                         placeholder="Type your message here..."
                         required
                     />
-                    <div className="text-center bg-stone-200">
+                    <div className="text-center bg-white">
                     <button type="submit" className="mt-4 bg-gray-400 font-bold p-2 rounded-md hover:bg-slate-600 shadow-xl">
                         Submit
                     </button>
