@@ -4,7 +4,7 @@ import Link from "@/node_modules/next/link";
 import { SetStateAction, useState } from "react";
 import Footer from "../components/Footer";
 
-export default function login() {
+export default function Signup() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
