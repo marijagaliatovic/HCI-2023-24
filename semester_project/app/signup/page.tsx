@@ -39,9 +39,9 @@ export default function Signup() {
       </div>
       <form
         onSubmit={handleSubmit}
-        className="bg-white mb-20 pb-20 sm:mx-auto sm:w-full max-w-md mx-auto px-10 rounded-md shadow-lg"
+        className="bg-white mb-20 pb-10 sm:mx-auto sm:w-full max-w-md mx-auto px-10 rounded-md shadow-lg"
       >
-        <label className="bg-white block mb-2 text-sm pt-20 font-semibold">
+        <label className="bg-white block mb-2 text-sm pt-10 font-semibold">
           Create username:
         </label>
         <input
