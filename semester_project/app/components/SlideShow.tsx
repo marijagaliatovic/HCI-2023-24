@@ -35,9 +35,9 @@ const SlideShow = () => {
             ))}
             <div>
                 <i onClick={prevSlide} className="cursor-pointer absolute top-1/2 left-0 lg:left-8 transform -translate-y-1/2 w-auto p-4 lg:p-4
-                text-white font-bold text-lg duration-500 ease-out select-none hover:bg-black hover:bg-opacity-80 self-center">&#10094;</i>
+                text-white font-bold text-lg duration-300 ease-out select-none hover:bg-black hover:bg-opacity-80 self-center ">&#10094;</i>
                 <i onClick={nextSlide} className="cursor-pointer absolute top-1/2 right-0 lg:right-8 transform -translate-y-1/2 w-auto p-4 lg:p-4
-                text-white font-bold text-lg duration-500 ease-out select-none hover:bg-black hover:bg-opacity-80 self-center">&#10095;</i>
+                text-white font-bold text-lg duration-300 ease-out select-none hover:bg-black hover:bg-opacity-80 self-center">&#10095;</i>
             </div>
         </div>
   );
