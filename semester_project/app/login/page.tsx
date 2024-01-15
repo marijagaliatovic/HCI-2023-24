@@ -23,10 +23,10 @@ export default function Login() {
   return (
       <>
       <div className="flex flex-col items-center relative lg:mt-12 py-8">
-          <h2 className="font-bold text-xl lg:text-2xl self-center mt-10 top-24">Log in</h2>
+          <h2 className="font-bold text-xl lg:text-2xl self-center lg:mt-10 top-24">Log in</h2>
           <div className="small-line"></div>
           </div>
-          <form onSubmit={handleSubmit} className="bg-white mb-20 pb-10 sm:mx-auto sm:w-full max-w-md mx-auto px-10 rounded-md shadow-lg">
+          <form onSubmit={handleSubmit} className="bg-white mb-20 pb-10 mx-5 sm:mx-auto md:mx-auto max-w-md px-10 rounded-md shadow-lg">
                   <label className="bg-white block mb-2 text-sm pt-10 font-semibold">Username:</label>
                   <input
                       type="text"
