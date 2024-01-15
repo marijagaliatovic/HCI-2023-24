@@ -4,7 +4,7 @@ import Link from "@/node_modules/next/link";
 import { SetStateAction, useState } from "react";
 import Footer from "../components/Footer";
 
-export default function contact() {
+export default function Contact() {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
@@ -22,8 +22,7 @@ export default function contact() {
     };
 
     const handleSubmit = () => {
-        // Implement your logic for handling the form submission here
-        // You can use the values of username, email, and message
+       
     };
     
     return (
