@@ -1,47 +1,56 @@
+"use client"
+
 import Link from "@/node_modules/next/link";
 import { SetStateAction, useState } from "react";
 import Footer from "../components/Footer";
 
-export default function page() {
-  return (
-    <div className="max-w-2xl mx-auto my-auto flex flex-col px-1 pt-10 lg:px-4 bg-white mt-10 sticky top-24">
-      <div className="bg-white sm:mx-auto sm:w-full sm:max-w-sm">
-        <h2 className="bg-white mt-8 text-center text-2xl font-bold leading-9 tracking-tight">
-          Log in
-        </h2>
-      </div>
-      <div className="bg-white mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="bg-white space-y-6 " action="#" method="POST">
-          <div className="bg-white mt-2">
-            <input
-              id="username"
-              name="username"
-              type="text"
-              placeholder="Username"
-              autoComplete="username"
-              required
-              className="bg-white block w-full rounded-md border-gray-300 border py-2 px-3 placeholder:text-gray-400"
-            />
-          </div>
-          <div className="bg-white mt-2">
-            <input
-              id="password"
-              name="password"
-              type="password"
-              placeholder="Password"
-              autoComplete="password"
-              required
-              className="bg-white block w-full rounded-md border-gray-300 border py-2 px-3 placeholder:text-gray-400"
-            />
-          </div>
+export default function login() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-          <div className="bg-white flex items-center justify-center">
-            <i className="decoration-black flex items-center justify-center text-center not-italic text-sm lg:text-base font-semibold hover:underline rounded-xl lg:rounded-2xl mt-3 py-2 px-6">
-              <Link href="/">Log in</Link>
-            </i>
+  const handleUsernameChange = (e: { target: { value: SetStateAction<string>; }; }) => {
+      setUsername(e.target.value);
+  };
+
+  const handlePasswordChange = (e: { target: { value: SetStateAction<string>; }; }) => {
+      setPassword(e.target.value);
+  };
+
+  const handleSubmit = () => {
+     
+  };
+  
+  return (
+      <>
+      <div className="flex flex-col items-center relative lg:mt-12 py-8">
+          <h2 className="font-bold text-xl lg:text-2xl self-center mt-10 top-24">Log in</h2>
+          <div className="small-line"></div>
           </div>
-        </form>
-        <p className="bg-white mt-10 text-center py-5 text-sm text-gray-300">
+          <form onSubmit={handleSubmit} className="bg-white mb-20 pb-20 sm:mx-auto sm:w-full max-w-md mx-auto px-10 rounded-md shadow-lg">
+                  <label className="bg-white block mb-2 text-sm pt-20 font-semibold">Username:</label>
+                  <input
+                      type="text"
+                      value={username}
+                      onChange={handleUsernameChange}
+                      className="w-full border p-2 rounded-md bg-white"
+                      required
+                  />
+
+                  <label className="bg-white block mt-4 mb-2 text-sm font-semibold">Password:</label>
+                  <input
+                      type="password"
+                      value={password}
+                      onChange={handlePasswordChange}
+                      className="w-full border p-2 rounded-md bg-white"
+                      required
+                  />
+
+                  <div className="text-center bg-white">
+                  <button type="submit" className="mt-5 bg-gray-400 font-bold p-2 rounded-md hover:bg-slate-600 shadow-xl">
+                      Log in
+                  </button>
+                  </div>
+                  <p className="bg-white mt-5 text-center py-5 text-sm text-gray-300">
           Don&apos;t have an account?&nbsp;
           <Link href="/signup">
             <span className="bg-white font-semi-old hover:underline">
@@ -49,8 +58,9 @@ export default function page() {
             </span>
           </Link>
         </p>
-      </div>
-    </div>
-    
-  );
+              </form>
+              
+          <Footer/>
+    </>
+  )
 }
