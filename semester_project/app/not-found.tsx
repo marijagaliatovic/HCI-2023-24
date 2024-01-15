@@ -11,7 +11,7 @@ export default function NotFound(){
                 
                 <div className=" flex flex-col justify-center items-center ">
                     <h2 className="bg-transparent text-4xl md:text-7xl font-bold">OOPS!</h2>
-                    <p className="bg-transparent text-xl md:text-3xl m-2 font-bold">WE COULDN'T FIND THE <br></br>PAGE YOU WERE LOOKING FOR.</p>
+                    <p className="bg-transparent text-xl md:text-3xl m-2 font-bold">WE COULDN'&apos;'T FIND THE <br></br>PAGE YOU WERE LOOKING FOR.</p>
                     <i className="bg-white mt-5 text-center not-italic text-sm md:text-md font-bold hover:bg-slate-500 rounded-md  p-2 shadow-lg transition duration-300 ease-in-out">
                        <Link className="bg-transparent" href="/">Go back Home!</Link>
                     </i>
