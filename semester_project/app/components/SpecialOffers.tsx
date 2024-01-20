@@ -47,7 +47,7 @@ export default function SpecialOffers() {
       </div>
      
       <div className="bg-transparent mt-4 w-full lg:ml-12 lg:w-2/3  flex justify-center lg:justify-end">
-          <i className="bg-gray-400  text-center not-italic text-sm lg:text-md font-bold hover:bg-slate-600 rounded-md  p-2 shadow-xl tracking-wide transition duration-300 ease-in-out"><Link href="/specialoffers" className="bg-transparent">View all</Link></i>
+          <i className="bg-gray-400 text-center not-italic text-sm lg:text-md font-bold hover:bg-slate-600 hover:text-slate-200 rounded-md  p-2 shadow-xl tracking-wide transition duration-300 ease-in-out"><Link href="/specialoffers" className="bg-transparent">View all</Link></i>
       </div>
     </div>
   );

@@ -170,8 +170,8 @@ export default function Filter({setData,data}:FilterProps){
                         </div>
 
                         <div className="bg-transparent relative py-4 rounded-md flex flex-row mx-10 justify-between items-center gap-2 mt-2">
-                        <button className="bg-slate-500  w-max relative p-2 rounded-md shadow-xl  cursor-pointer hover:bg-white" onClick={resetFilters}>Reset</button>
-                        <button className="bg-slate-500  w-max relative p-2 rounded-md shadow-xl  cursor-pointer hover:bg-white" onClick={applyFilters}>Apply</button>
+                        <button className="bg-slate-500 w-max relative p-4 rounded-md shadow-xl  cursor-pointer hover:bg-white" onClick={resetFilters}>Reset</button>
+                        <button className="bg-slate-500 w-max relative p-4 rounded-md shadow-xl  cursor-pointer hover:bg-white" onClick={applyFilters}>Apply</button>
                         </div>
                         
                     </div>

@@ -66,11 +66,11 @@ const DateRange = () => {
                   ))
             }
         </div>
-        <div className="bg-slate-200 p-2 font-bold rounded-full border-r-4 cursor-pointer flex flex-row justify-center gap-1 hover:underline">
-            <svg className="bg-slate-200 text-black self-center" xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="black" viewBox="0 0 16 16">
+        <div className="bg-slate-200 p-2 font-bold rounded-full cursor-pointer flex flex-row justify-center gap-1 hover:bg-slate-400">
+            <svg className="bg-transparent text-black self-center" xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="black" viewBox="0 0 16 16">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" fill="#000000"></path>
             </svg>
-            <p className="bg-slate-200 font-bold">Search</p>
+            <p className="bg-transparent font-bold">Search</p>
         </div>
     </div> 
   );

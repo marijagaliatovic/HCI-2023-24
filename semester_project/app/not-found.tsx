@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 
 export default function NotFound(){
     return(
-        <main className="text-center lg:top-36 top-32 z-50 relative w-full h-max">
+        <main className="text-center lg:top-36 top-32  relative w-full h-max">
             
             <div className=" flex flex-col justify-center items-center self-center">
                 

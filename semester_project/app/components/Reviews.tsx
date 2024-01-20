@@ -28,7 +28,7 @@ const Reviews = async () => {
             {<ReviewItem key={0} {...reviews[0]} />}
           </div>
           <div className="bg-gray-400 mt-4 lg:mr-12 w-full  lg:w-2/3  flex justify-center lg:justify-end">
-          <i className="bg-stone-200 lg:mr-16 text-center not-italic text-sm lg:text-md font-bold hover:bg-slate-600 rounded-md p-2 shadow-xl tracking-wide transition duration-300 ease-in-out"><Link href="/reviews" className="bg-transparent">View all</Link></i>
+          <i className="bg-slate-200 lg:mr-16 text-center not-italic text-sm lg:text-md font-bold hover:bg-slate-600 hover:text-slate-200 rounded-md p-2 shadow-xl tracking-wide transition duration-300 ease-in-out"><Link href="/reviews" className="bg-transparent">View all</Link></i>
           </div>
           
          
