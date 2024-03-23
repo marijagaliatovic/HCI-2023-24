@@ -4,7 +4,7 @@ import React from "react";
 import { useState } from "react";
 import Footer from "../components/Footer";
 
-export default function faq() {
+export default function Faq() {
   const [openAnswer, setOpenAnswer] = useState(false);
   const [openAnswer2, setOpenAnswer2] = useState(false);
   const [openAnswer3, setOpenAnswer3] = useState(false);
