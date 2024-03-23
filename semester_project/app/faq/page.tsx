@@ -74,7 +74,7 @@ export default function faq() {
           <p className="bg-white mt-5">
             Typically, check-in times range from 2:00 PM to 4:00 PM, and
             check-out times are around 10:00 AM to 12:00 PM. However, these
-            times may vary depending on the property's policies.
+            times may vary depending on the property&apos;s policies.
           </p>
         )}
         <hr className="mt-10"></hr>
@@ -127,7 +127,7 @@ export default function faq() {
         {openAnswer3 && (
           <p className="bg-white mt-5">
             This varies between apartments. Some include utilities in the rental
-            price, while others may charge them separately. It's essential to
+            price, while others may charge them separately. It&apos;s essential to
             clarify this with the property owner or manager before booking.
           </p>
         )}
@@ -180,8 +180,8 @@ export default function faq() {
         {openAnswer5 && (
           <p className="bg-white mt-5">
             Many apartments have a minimum stay requirement, which can range
-            from one night to a week or more. It's essential to check the
-            property's booking terms and conditions for this information.
+            from one night to a week or more. It&apos;s essential to check the
+            property&apos;s booking terms and conditions for this information.
           </p>
         )}
         <hr className="mt-10"></hr>
