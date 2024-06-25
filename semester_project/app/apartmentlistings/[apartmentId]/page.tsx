@@ -87,7 +87,7 @@ const Apartment =  async ( { params }: {params: Params}) => {
           our well-appointed apartment provides a haven of relaxation after a
           day of exploring local attractions. With its contemporary amenities,
           stunning views, and convenient location, this apartment is your
-          gateway to an unforgettable stay. Whether you're traveling for
+          gateway to an unforgettable stay. Whether you&apos;re traveling for
           business or leisure, make your reservation today and indulge in the
           ultimate experience of comfort and convenience. Your home away from
           home awaits at our exceptional apartment.
