@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import Filter from "../components/Filter";
 import { apartmentsItem } from "@/lib/.contentfulClient";
 import { useEffect, useState } from "react";
-import Link from "@/node_modules/next/link";
+
 
 const ApartmentListings = () => {
   const [apartments, setApartments] = useState<apartmentsItem[]>([]);
@@ -52,15 +52,15 @@ const ApartmentListings = () => {
             </div>
           ) : (
             <div className="flex md:w-5/6 flex-col lg:flex-row flex-wrap items-center justify-center w-max lg:w-4/5 relative lg:mx-20 lg:mt-4 lg:items-stretch">
-              {apartments.map((item, index) => (
-                <AccomodationItem key={index} {...item} />
+              {apartments.map((item) => (
+                <AccomodationItem  {...item} />
               ))}
             </div>
           )}
         </div>
       </div>
       <Footer />
-      </div>
+    </div>
   );
 };
 
