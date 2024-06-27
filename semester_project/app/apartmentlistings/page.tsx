@@ -35,7 +35,7 @@ const ApartmentListings = () => {
   const handleSetData = (newApartments: apartmentsItem[]) => {
     setApartments(newApartments);
   };
-
+ 
   return (
     <div className="flex flex-col gap-20 min-h-screen">
       <div className="relative top-0 lg:top-24 flex flex-col w-full lg:max-content flex-grow">
@@ -65,3 +65,6 @@ const ApartmentListings = () => {
 };
 
 export default ApartmentListings;
+
+
+

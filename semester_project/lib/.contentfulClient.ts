@@ -1,130 +1,196 @@
-
-const gqAllApartmentsQuery = `query getAllApartments{
-    apartmentsCollection {
-      items {
-        picture{
-            title
-            url
-        }
+const gqAllApartmentsQuery = `query getAllApartments {
+  apartmentsCollection {
+    items {
+      apartmentId
+      picture {
         title
-        location
-        size
-        priceNumber
-        apartment
-        specialOffer
+        url
+      }
+      title
+      location
+      size
+      priceNumber
+      apartment
+      specialOffer
+      imagesCollection {
+        items {
+          url
+          title
+        }
       }
     }
   }
-`;
+}`;
 
- const gqAllSpecialOffersQuery = `query getAllSpecialoffers{
-    apartmentsCollection(where: {specialOffer_not_in : 0}) {
-      items {
-        picture{
-            title
-            url
-        }
+const getApartmentByIdQuery =  `query getApartmentById ($apartmentId:String) {
+  apartmentsCollection(where : {apartmentId:$apartmentId}){
+    items {
+      picture {
         title
-        location
-        size
-        priceNumber
-        apartment
-        specialOffer
+        url
+      }
+      title
+      location
+      size
+      priceNumber
+      apartment
+      specialOffer
+      imagesCollection {
+        items {
+          url
+          title
+        }
       }
     }
-  }`;
+  }
+}`
 
 
-export interface apartmentsCollectionResponse {
-    apartmentsCollection: {
-        items: apartmentsItem[];
+const gqAllSpecialOffersQuery = `query getAllSpecialoffers {
+  apartmentsCollection(where: {specialOffer_not_in: 0}) {
+    items {
+      sys {
+        id
+      }
+      picture {
+        title
+        url
+      }
+      title
+      location
+      size
+      priceNumber
+      apartment
+      specialOffer
+      imagesCollection {
+        items {
+          url
+          title
+        }
+      }
     }
+  }
+}`;
+
+export interface images {
+  title: string;
+  url: string;
 }
 
-export interface apartmentsItem{
-    picture:{
-        title:string;
-        url:string;
-      }
-      title:string;
-      location:string;
-      size:string;
-      priceNumber:number;
-      apartment:boolean;
-      specialOffer:number;
+export interface imagesCollection {
+  items: images[];
+}
+
+export interface apartmentsItem {
+  apartmentId: string;
+  picture: {
+    title: string;
+    url: string;
+  };
+  title: string;
+  location: string;
+  size: string;
+  priceNumber: number;
+  apartment: boolean;
+  specialOffer: number;
+  imagesCollection: imagesCollection; 
+}
+
+
+export interface ApartmentsCollectionResponse {
+  apartmentsCollection: {
+    items: {
+      apartmentId: string;
+      picture: {
+        title: string;
+        url: string;
+      };
+      title: string;
+      location: string;
+      size: string;
+      priceNumber: number;
+      apartment: boolean;
+      specialOffer: number;
+      imagesCollection: imagesCollection;
+    }[];
+  };
 }
 
 const baseUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master`;
 
+const getAllApartments = async (): Promise<apartmentsItem[]> => {
+  try {
+    const response = await fetch(baseUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
+      },
+      body: JSON.stringify({ query: gqAllApartmentsQuery }),
+    });
+    const body = (await response.json()) as { data: ApartmentsCollectionResponse };
 
-const getAllApartments =async (): Promise<apartmentsItem[]> => {
-    try{
-        const response = await fetch(baseUrl, {
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json',
-                Authorization:`Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
-            },
-            body:JSON.stringify({query:gqAllApartmentsQuery}),
-        });
-        const body = (await response.json()) as {data: apartmentsCollectionResponse}
-
-        const apartmentsCollection = body.data.apartmentsCollection.items.map(
-            (item)=>({
-            title:item.title,
-            picture:item.picture,
-            location:item.location,
-            size:item.size,
-            priceNumber:item.priceNumber,
-            apartment:item.apartment,
-            specialOffer:item.specialOffer
-        }));
-
-        
-        return apartmentsCollection;
-    } catch(error){
-        console.error("Error fetching apartments:", error);
-        return [];
-    }
+    return body.data.apartmentsCollection.items;
+  } catch (error) {
+    console.error("Error fetching apartments:", error);
+    return [];
+  }
 };
 
-const getAllSpecialoffers = async():Promise<apartmentsItem[]> =>{
-    try{
-        const response = await fetch(baseUrl, {
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json',
-                Authorization:`Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
-        },
-            body:JSON.stringify({query:gqAllSpecialOffersQuery})
-        });
+const getAllSpecialoffers = async (): Promise<apartmentsItem[]> => {
+  try {
+    const response = await fetch(baseUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
+      },
+      body: JSON.stringify({ query: gqAllSpecialOffersQuery }),
+    });
 
-        const body = (await response.json()) as {data: apartmentsCollectionResponse}
+    const body = (await response.json()) as { data: ApartmentsCollectionResponse };
 
-        const apartmentsCollection = body.data.apartmentsCollection.items.map(
-            (item)=>({
-            title:item.title,
-            picture:item.picture,
-            location:item.location,
-            size:item.size,
-            priceNumber:item.priceNumber,
-            apartment:item.apartment,
-            specialOffer:item.specialOffer
-        }));
-
-        
-        return apartmentsCollection;
-
-    }catch(error){
-        console.error("Error fetching apartments:", error);
-        return [];
-    }
+    return body.data.apartmentsCollection.items;
+  } catch (error) {
+    console.error("Error fetching special offers:", error);
+    return [];
+  }
 };
+
+const getApartmentById = async (id: string): Promise<apartmentsItem | null> => {
+  console.log("getApartmentById: ", id);
+  try {
+    const response = await fetch(baseUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
+      },
+      body: JSON.stringify({ query: getApartmentByIdQuery, variables: { apartmentId: id } }),
+    });
+
+    const body = await response.json();
+    
+    // Provjeri postoji li polje data i apartmentsCollection u odgovoru
+    if (body.data && body.data.apartmentsCollection && body.data.apartmentsCollection.items.length > 0) {
+      // Vrati prvi pronađeni stan
+      return body.data.apartmentsCollection.items[0];
+    } else {
+      // Ako nema podataka, vrati null
+      return null;
+    }
+  } catch (error) {
+    console.error("Error fetching apartment by ID:", error);
+    return null;
+  }
+};
+
 
 const contentfulService = {
-    getAllApartments,
-    getAllSpecialoffers
-}
+  getAllApartments,
+  getAllSpecialoffers,
+  getApartmentById,
+};
 
 export default contentfulService;
 
