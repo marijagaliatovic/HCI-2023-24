@@ -1,14 +1,16 @@
 'use client';
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SlideShow from "@/app/components/SlideShow";
 import BookNow from "@/app/components/BookNow";
+import contentfulService, { imagesCollection } from "@/lib/.contentfulClient";
 
 type ApartmentProps = {
   apartment: {
     title: string;
     location: string;
     price: number;
+    apartmentId: string;
   };
 };
 
@@ -16,6 +18,22 @@ const Apartment = ({ apartment }: ApartmentProps) => {
   const [openInformation, setOpenInformation] = useState(false);
   const [openAmenities, setOpenAmenities] = useState(false);
   const [openReviews, setOpenReviews] = useState(false);
+  const [allApartmentPhotos,setallApartmentPhotos] = useState<imagesCollection|undefined>();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(()=>{ const fetchData = async () => {
+    console.log("apartmentId: " + apartment.apartmentId);
+    try {
+      const data = await contentfulService.getAllPhotos(apartment.apartmentId);
+      setallApartmentPhotos(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    } finally { //executes whether it succeeds or we get an error
+      setLoading(false);
+    }
+  };
+    fetchData();
+  }, [])
 
   const toggleInformation = () => {
     setOpenInformation(!openInformation);
@@ -33,7 +51,7 @@ const Apartment = ({ apartment }: ApartmentProps) => {
     <>
       <div className="bg-white mb-20 pt-5 pb-10 mx-5 rounded-md mt-32 md:mx-auto w-1/2 px-10">
         <div className="mx-auto bg-white">
-          <SlideShow/>
+          <SlideShow images={allApartmentPhotos}/>
         </div>
         <div className="bg-white flex flex-row">
           <div className="bg-white">
@@ -118,3 +136,7 @@ const Apartment = ({ apartment }: ApartmentProps) => {
 };
 
 export default Apartment;
+function setallApartmentPhotos(data: import("@/lib/.contentfulClient").imagesCollection | undefined) {
+  throw new Error("Function not implemented.");
+}
+

@@ -35,6 +35,7 @@ const getApartmentByIdQuery =  `query getApartmentById ($apartmentId:String) {
       priceNumber
       apartment
       specialOffer
+      apartmentId
       imagesCollection {
         items {
           url
@@ -62,12 +63,26 @@ const gqAllSpecialOffersQuery = `query getAllSpecialoffers {
       priceNumber
       apartment
       specialOffer
+      apartmentId
       imagesCollection {
         items {
           url
           title
         }
       }
+    }
+  }
+}`;
+
+const gqAllApartmentPhotos = `query getAllApartmentPhotos($apartmentId:String){
+  apartmentsCollection(where: {apartmentId: $apartmentId}){
+    items{
+     imagesCollection{
+          items{
+            title
+            url
+          }
+        } 
     }
   }
 }`;
@@ -93,7 +108,7 @@ export interface apartmentsItem {
   priceNumber: number;
   apartment: boolean;
   specialOffer: number;
-  imagesCollection: imagesCollection; 
+  imagesCollection: imagesCollection ; 
 }
 
 
@@ -185,11 +200,42 @@ const getApartmentById = async (id: string): Promise<apartmentsItem | null> => {
   }
 };
 
+const getAllPhotos = async (apartmentId:string): Promise<imagesCollection | undefined> => {
+  console.log("getAllPhotos: ", apartmentId);
+  try {
+    const response = await fetch(baseUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
+      },
+      body: JSON.stringify({ 
+        query: gqAllApartmentPhotos ,
+        variables: { apartmentId: apartmentId },})
+
+    });
+    
+    const body = (await response.json()) as { data: ApartmentsCollectionResponse };
+   
+    const imagesCollection = body.data.apartmentsCollection.items[0].imagesCollection;
+    
+    if (body.data && body.data.apartmentsCollection && body.data.apartmentsCollection.items.length > 0) {
+    return imagesCollection;
+    }
+    else{
+      return undefined;
+    }
+  } catch (error) {
+    console.error("Error fetching apartment photos:", error);
+    return undefined;
+  }
+};
 
 const contentfulService = {
   getAllApartments,
   getAllSpecialoffers,
   getApartmentById,
+  getAllPhotos
 };
 
 export default contentfulService;

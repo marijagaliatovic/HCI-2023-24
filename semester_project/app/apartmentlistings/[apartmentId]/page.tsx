@@ -175,7 +175,8 @@ const ApartmentPage = async ({ params }: Params) => {
       <Apartment key={apartmentId} apartment={{
         title: apartment.title,
         location: apartment.location,
-        price: apartment.priceNumber
+        price: apartment.priceNumber,
+        apartmentId: apartment.apartmentId
       }} />
       <Footer />
     </div>
