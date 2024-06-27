@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import SlideShow from "@/app/components/SlideShow";
 import BookNow from "@/app/components/BookNow";
 import contentfulService, { imagesCollection } from "@/lib/.contentfulClient";
+import NavBar from "./NavBar";
 
 type ApartmentProps = {
   apartment: {
