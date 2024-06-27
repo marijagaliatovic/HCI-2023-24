@@ -17,8 +17,10 @@ const config: Config = {
         'gray_background':'#CACACA',
       },
       screens: {
+        'xl': '1400px',
+        'ml' : '1100px',
         'lg': '900px',
-        'md': '500px',
+        'md': '550px',
       },
     },
   },
