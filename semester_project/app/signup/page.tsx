@@ -82,7 +82,7 @@ export default function Signup() {
             Sign up
           </button>
         </div>
-        <p className="bg-white mt-10 text-center py-5 text-sm text-gray-300">
+        <p className="bg-white mt-10 text-center py-5 text-sm text-gray-400">
           Already have an account?&nbsp;
           <Link href="/login">
             <span className="bg-white font-semi-old hover:underline">
