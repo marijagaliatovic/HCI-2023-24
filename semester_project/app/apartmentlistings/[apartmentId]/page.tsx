@@ -29,7 +29,12 @@ const ApartmentPage = async ({ params }: Params) => {
         information: apartment.information,
         whatWeOffer: apartment.whatWeOffer,
         priceNumber: apartment.priceNumber,
-        apartmentId: apartment.apartmentId
+        apartmentId: apartment.apartmentId,
+        picture: apartment.picture,
+        size: apartment.size,
+        specialOffer: apartment.specialOffer,
+        apartment: apartment.apartment,
+        imagesCollection: apartment.imagesCollection
       }} />
       </div>
       <Footer />
