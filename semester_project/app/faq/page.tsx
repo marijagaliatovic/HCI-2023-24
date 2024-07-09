@@ -52,7 +52,7 @@ export default function Faq() {
         <div className="small-line"></div>
       </div>
 
-      <div className="bg-white mb-20 pt-5 pb-10 sm:mx-auto md:mx-auto max-w-md px-10 rounded-md shadow-lg mt-5 lg:max-content">
+      <div className="bg-white mb-10 pb-10 mx-10 sm:mx-auto md:mx-auto max-w-md px-12 rounded-md shadow-lg sm:w-2/3 w-4/5">
         <button
           className="bg-white text-left font-bold mt-10 flex gap-3 flex-row"
           onClick={toogleAnswer}

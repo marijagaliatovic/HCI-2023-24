@@ -6,11 +6,10 @@ import BookNow from "@/app/components/BookNow";
 import ReviewItem from "./ReviewItem";
 import contentfulService, { apartmentsItem, imagesCollection } from "@/lib/.contentfulClient";
 import getReviews, { reviewsItem } from "@/lib/.contentfulAllReviews";
-import Footer from "./Footer";
 
 type ApartmentProps = {
   apartment: apartmentsItem;
-}
+};
 
 const Apartment = ({ apartment }: ApartmentProps) => {
   const [openInformation, setOpenInformation] = useState(false);
@@ -38,22 +37,20 @@ const Apartment = ({ apartment }: ApartmentProps) => {
     fetchReviews();
   }, [apartment.title]);
 
-
-
-  useEffect(()=>{ const fetchData = async () => {
-    console.log("apartmentId: " + apartment.apartmentId);
-    try {
-      const data = await contentfulService.getAllPhotos(apartment.apartmentId);
-      setAllApartmentPhotos(data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    } finally { //executes whether it succeeds or we get an error
-      setLoading(false);
-    }
-  };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await contentfulService.getAllPhotos(apartment.apartmentId);
+        console.log('Fetched Photos:', data); // Debug statement
+        setAllApartmentPhotos(data);
+      } catch (error) {
+        console.error("Error fetching photos:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
     fetchData();
-  }, [])
-
+  }, [apartment.apartmentId]);
 
   const toggleInformation = () => {
     setOpenInformation(!openInformation);
@@ -68,30 +65,29 @@ const Apartment = ({ apartment }: ApartmentProps) => {
   };
 
   return (
-    <>
-      <div className="bg-white mb-20 pt-5 pb-10 mx-5 rounded-md mt-32 md:mx-auto w-1/2 px-10">
-        <div className="mx-auto bg-white">
-          <SlideShow images={allApartmentPhotos}/>
-
+    <div className=" flex justify-center">
+      <div className="bg-white mb-10 md:mb-10 pt-5 pb-10 mx-4 rounded-md lg:mt-32  lg:w-1/2  px-4 md:px-10 sm:mb-0">
+        <div className="mx-auto bg-white md:mb-10 mb-5 lg:mb-4">
+          <SlideShow images={allApartmentPhotos} />
         </div>
-        <div className="bg-white flex flex-col mb-10 md:flex-row ml-10">
-          <div className="bg-white mb-4 md:mb-0">
+        <div className="bg-white justify-center flex flex-wrap flex-col gap-4 mb-10 md:flex-row md:justify-between items-center md:items-start">
+          <div className="bg-white md:ml-10 md:mb-0 md:w-1/3">
             <div className="bg-white relative">
               <h2 className="font-bold text-xl bg-white lg:text-2xl">
                 {title}
               </h2>
             </div>
-            <h1 className="bg-white flex">
+            <h1 className="bg-white">
               {location} | Room | {priceNumber}$ per night
             </h1>
           </div>
-          <div className="bg-white ml-0 md:ml-8 pl-0 md:pl-8 pt-4 md:pt-0">
+          <div className="bg-white md:mr-10 lg:ml-8 md:ml-8 md:mt-0">
             <BookNow />
           </div>
         </div>
         <hr />
         <button
-          className="bg-white font-bold ml-10 md:mt-4 md:ml-10 mb-4 flex items-center"
+          className="bg-white font-bold ml-4 md:ml-10 mt-4 md:mt-4 mb-4 flex items-center"
           onClick={toggleInformation}
         >
           Information{" "}
@@ -107,13 +103,13 @@ const Apartment = ({ apartment }: ApartmentProps) => {
           </svg>
         </button>
         {openInformation && (
-          <p className="bg-white mb-4 ml-0 md:ml-10 text-sm pr-4">
+          <p className="bg-white mb-4 ml-4 md:ml-10 text-sm pr-4">
             {information}
           </p>
         )}
         <hr />
         <button
-          className="bg-white font-bold ml-10 md:mt-4 md:ml-10 mb-4 flex items-center"
+          className="bg-white font-bold mt-4 ml-4 md:ml-10 mb-4 flex items-center"
           onClick={toggleAmenities}
         >
           What we offer{" "}
@@ -129,7 +125,7 @@ const Apartment = ({ apartment }: ApartmentProps) => {
           </svg>
         </button>
         {openAmenities && (
-          <div className="bg-white md:ml-10 flex flex-row flex-wrap ml-0 gap-3  mb-4 md:mb-10">
+          <div className="bg-white flex flex-wrap gap-3 md:ml-10 mb-4 md:mb-10">
             {whatWeOffer.map((offer, index) => (
               <div key={index} className="bg-white p-2 border text-sm rounded">
                 {offer}
@@ -139,7 +135,7 @@ const Apartment = ({ apartment }: ApartmentProps) => {
         )}
         <hr />
         <button
-          className="bg-white font-bold mt-4 ml-0 md:ml-10  mb-4 flex items-center"
+          className="bg-white font-bold mt-4 ml-4 md:ml-10 mb-4 flex items-center"
           onClick={toggleReviews}
         >
           Reviews{" "}
@@ -155,7 +151,7 @@ const Apartment = ({ apartment }: ApartmentProps) => {
           </svg>
         </button>
         {openReviews && (
-          <div className="bg-white flex justify-center mb-10 md:ml-10 overflow">
+          <div className="bg-white flex flex-col items-center mb-10 overflow">
             {loadingReviews ? (
               <p className="bg-white">Loading reviews...</p>
             ) : reviews.length > 0 ? (
@@ -163,14 +159,15 @@ const Apartment = ({ apartment }: ApartmentProps) => {
                 <ReviewItem key={review.name} {...review} />
               ))
             ) : (
-              <p className="bg-white text-sm">No reviews available.</p>
+              <p className="bg-white">No reviews available.</p>
             )}
           </div>
         )}
       </div>
-    </>
+      <div className="bg-white">
+      </div>
+    </div>
   );
 };
 
 export default Apartment;
-

@@ -23,7 +23,8 @@ export default function SlideShow({ images }: SlideShowProps) {
   };
 
   return images ? (
-    <div className="bg-white relative w-full basis-6/12 p-0 lg:p-8 lg:m-4">
+    <div className="bg-white relative w-full basis-6/12 p-0 lg:p-8 
+    ">
       {images.items.map((image, index) => (
         <Image
           key={index}

@@ -26,7 +26,7 @@ export default function Login() {
           <h2 className="font-bold text-xl lg:text-2xl self-center lg:mt-10 top-24">Log in</h2>
           <div className="small-line"></div>
           </div>
-          <form onSubmit={handleSubmit} className="bg-white mb-10 pb-10 mx-5 sm:mx-auto md:mx-auto max-w-md px-12 rounded-md shadow-lg sm:w-2/3 w-4/5">
+          <form onSubmit={handleSubmit} className="bg-white mb-10 pb-10 mx-10 sm:mx-auto md:mx-auto max-w-md px-12 rounded-md shadow-lg sm:w-2/3 w-4/5">
                   <label className="bg-white block mb-2 text-sm pt-10 font-semibold">Username:</label>
                   <input
                       type="text"
