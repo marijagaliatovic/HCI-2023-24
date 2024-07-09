@@ -2,8 +2,26 @@
 
 import Link from "next/link";
 import SlideShow from "./SlideShow";
+import { useEffect, useState } from "react";
+import contentfulService, { images } from "@/lib/.contentfulClient";
+import { imagesCollection } from "./AccomodationItem";
 
 export default function HeroSection(){ 
+const [allApartmentPhotos,setallApartmentPhotos] = useState<imagesCollection|undefined>();
+const [loading, setLoading] = useState(true);
+
+useEffect(()=>{ const fetchData = async () => {
+    try {
+      const data = await contentfulService.getAllPhotos("1");
+      setallApartmentPhotos(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    } finally { //executes whether it succeeds or we get an error
+      setLoading(false);
+    }
+  };
+  fetchData();
+}, [])
 
     return (
       <>
@@ -16,7 +34,7 @@ export default function HeroSection(){
               <i className="text-center not-italic text-sm lg:text-md font-bold hover:bg-slate-600 hover:text-slate-200 rounded-md mt-3 p-2 shadow-xl transition duration-300 ease-in-out"><Link className="bg-transparent" href="/apartmentlistings">Apartments</Link></i>
             </div>
 
-            <SlideShow/>  
+            <SlideShow images={allApartmentPhotos}/>  
         </div>
 
         
