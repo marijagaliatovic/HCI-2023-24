@@ -143,7 +143,7 @@ export default function Filter({setData,data}:FilterProps){
                     {/* Dark overlay on the background when filters drowpdown is open */}
                     <div className="fixed top-0 left-0 w-full h-full bg-black opacity-50 z-30" onClick={handleFiltersClick}></div>
                     {/*Filters Dropdown */}
-                    <div  id="filterDropdown" className="bg-slate-400 absolute z-50 -top-8 self-center flex flex-col lg:w-max w-7/8 h-min lg:h-max shadow-lg lg:p-4 rounded-md lg:m-5">
+                    <div  id="filterDropdown" className="bg-slate-400 absolute z-50 top-0 lg:-top-12 xl:-top-8 self-center flex flex-col lg:w-max w-7/8 h-min lg:h-max shadow-lg lg:p-4 rounded-md lg:m-5">
                         <div className="bg-transparent flex flex-row mx-10 py-4 items-center justify-start border-b-2 border-slate-200">
                             <div className="bg-transparent hover:bg-slate-200 rounded-full p-1" onClick={handleFiltersClick}><XMarkIcon className="w-4 h-4 bg-transparent" /></div>
                             <p className="bg-transparent font-bold flex-grow text-center">Filters</p>
