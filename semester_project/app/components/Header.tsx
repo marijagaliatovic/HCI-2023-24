@@ -1,12 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import React, { useState } from "react";
-import IconArrow from "public/images/expand_more_icon.png"
 
 export default function Header() {
   const [isAccomodationOpen, setIsAccommodationOpen] = useState(false);
+  const [activeItem, setActiveItem] = useState<number>(0);
 
   const handleAccommodationHover = () => {
     setIsAccommodationOpen(true);
@@ -18,12 +17,16 @@ export default function Header() {
 
   const handleAccommodationClick = () =>{
     setIsAccommodationOpen(false);
-  }
+  };
+
+  const handleButtonClick = (item:number) => {
+    setActiveItem(item);
+  };
 
   return (
     <nav className="hidden fixed w-full z-10 top-0 lg:block">
-      <ul className="flex flex-row justify-center gap-6 pt-10 pl-20 pr-20 pb-5 ">
-        <li className="text-base font-semibold not-italic hover:underline  cursor-pointer bg-transparent"><Link className="bg-transparent" href="/">HOME</Link></li>
+      <ul className="flex flex-row justify-center gap-6 pt-10 pl-20 pr-20 pb-5">
+        <li className={`text-base font-semibold not-italic hover:underline  cursor-pointer bg-transparent ${activeItem === 0 ? "text-red-700": "text-stone-700"}`}><Link className="bg-transparent" href="/" onClick={()=>handleButtonClick(0)}>HOME</Link></li>
 
         <li className="text-base font-semibold not-italic relative  cursor-pointer bg-transparent" 
           onMouseEnter={handleAccommodationHover}
@@ -48,12 +51,12 @@ export default function Header() {
           )}
         </li>
         
-        <li className="text-base font-semibold not-italic hover:underline cursor-pointer bg-transparent">
-          <Link className = "bg-transparent" href="/contact">CONTACT US</Link>
+        <li className = {`text-base font-semibold not-italic hover:underline  cursor-pointer bg-transparent ${activeItem === 1 ? "text-red-700": "text-stone-700"}`}>
+          <Link className = "bg-transparent" href="/contact" onClick={()=>handleButtonClick(1)}>CONTACT US</Link>
         </li>
 
-        <li className="text-base font-semibold not-italic hover:underline cursor-pointer bg-transparent">
-          <Link className="bg-transparent" href="/signup">SIGN UP</Link>
+        <li className = {`text-base font-semibold not-italic hover:underline  cursor-pointer bg-transparent ${activeItem === 2 ? "text-red-700": "text-stone-700"}`}>
+          <Link className="bg-transparent" href="/signup" onClick={()=>handleButtonClick(2)}>SIGN UP</Link>
         </li>
       </ul>
     </nav>

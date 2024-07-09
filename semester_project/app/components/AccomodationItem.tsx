@@ -38,7 +38,7 @@ const AccomodationItem = (item: accomodation) => {
       </div>
       <div className="bg-white relative basis-6/12 w-8/12 m-4 flex flex-col justify-between gap-1 text-center ">
         <h3 key={item.apartmentId} className="bg-white self-center text-2xl font-bold mb-4 cursor-pointer font-serif not-italic tracking-widest">
-          <Link href={`/apartmentlistings/` + item.apartmentId}>{item.title}</Link>
+          <Link href={`/apartmentlistings/` + item.apartmentId} className="bg-transparent">{item.title}</Link>
         </h3>
         <div className="flex flex-col self-center justify-center m-3">
           <div className="bg-white flex justify-center gap-1 items-end">

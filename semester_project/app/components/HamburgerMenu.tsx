@@ -9,7 +9,7 @@ export type HamburgerProps = {
 
 export default function HamburgerMenu({ open, clickHandler }: HamburgerProps) {
     const [isAccommodationOpen, setIsAccommodationOpen] = useState(false);
-  
+    const [activeIndex, setActiveIndex] = useState(0);
    const handleAccommodationClick = () => {
     setIsAccommodationOpen(!isAccommodationOpen);
    }
@@ -58,10 +58,10 @@ export default function HamburgerMenu({ open, clickHandler }: HamburgerProps) {
           onClick={handleAccommodationClick}> 
           <a>ACCOMODATION</a>
           {isAccommodationOpen && (
-            <ul className="absolute z-10 left-1/2 transform -translate-x-1/2 p-2 w-60 bg-gray-200 rounded-md shadow-lg mt-1">
-              <li className="bg-transparent"><Link href="/apartmentlistings" className="bg-gray-200 block px-4 pt-2 pb-3 text-sm font-semibold border-b-2 border-slate-500 rounded-md" onClick={()=>{clickHandler(false)}} >APARTMENT LISTINGS</Link></li>
-              <li className="bg-transparent"><Link href="/specialoffers" className="bg-gray-200 block px-4 pt-2 pb-3 text-sm font-semibold border-b-2 border-slate-500 rounded-md" onClick={()=>{clickHandler(false)}}>SPECIAL OFFERS</Link></li>
-              <li className="bg-transparent"><Link href="/reviews" className="bg-gray-200 block px-4 pt-2 pb-3 text-sm font-semibold border-b-2 border-slate-500 rounded-md" onClick={()=>{clickHandler(false)}}>REVIEWS</Link></li>
+            <ul className="absolute z-10 left-1/2 transform -translate-x-1/2 p-2 w-60 bg-gray-400 rounded-md shadow-lg">
+              <li className="bg-transparent"><Link href="/apartmentlistings" className="bg-gray-400 block px-4 py-2 text-sm font-semibold hover:bg-slate-500 transition duration-300 ease-in-out rounded-md" onClick={()=>{clickHandler(false)}} >APARTMENT LISTINGS</Link></li>
+              <li className="bg-transparent"><Link href="/specialoffers" className="bg-gray-400 block px-4 py-2 text-sm font-semibold hover:bg-slate-500 transition duration-300 ease-in-out rounded-md" onClick={()=>{clickHandler(false)}}>SPECIAL OFFERS</Link></li>
+              <li className="bg-transparent"><Link href="/reviews" className="bg-gray-400 block px-4 py-2 text-sm font-semibold hover:bg-slate-500 transition duration-300 ease-in-out rounded-md" onClick={()=>{clickHandler(false)}}>REVIEWS</Link></li>
             </ul>
           )}
         </li>

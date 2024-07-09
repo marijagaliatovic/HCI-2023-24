@@ -27,7 +27,6 @@ export default function SpecialOffers() {
  
   return (
     <>
-    <NavBar/>
     <div className="bg-transparent flex flex-col items-center relative mt-0 lg:mt-12 lg:py-8 pb-4 ">
       <h2 className="bg-transparent self-center font-bold not-italic text-xl lg:text-2xl mb-2 mt-4 lg:mt-10 ">
         Special Offers
