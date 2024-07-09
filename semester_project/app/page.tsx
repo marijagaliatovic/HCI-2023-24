@@ -8,12 +8,14 @@ import Footer from "./components/Footer";
 export default function Home() {
 
   return (
-    <div className=" relative top-0 lg:top-24 flex flex-col overflow-hidden">
+    <div className=" relative top-0 lg:top-24 flex flex-col min-h-screen overflow-hidden">
+      <div className="w-full lg:max-content flex-grow">
       <HeroSection/>
       <WhatWeOffer/>
       <SpecialOffers/>
       <Reviews/>
       <Footer/>
+      </div>
     </div>
   )
 }
