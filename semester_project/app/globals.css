@@ -112,3 +112,7 @@ span{
   
   border: 2px solid rgb(203 213 225);
 }
+
+.overlay-open {
+  overflow: hidden;
+}

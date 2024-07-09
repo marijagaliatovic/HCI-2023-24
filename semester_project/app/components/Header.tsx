@@ -19,7 +19,7 @@ export default function Header() {
   };
 
   return (
-    <nav className="hidden fixed w-full z-10 top-0 lg:block">
+    <nav className="hidden fixed w-full z-20 top-0 lg:block">
       <ul className="flex flex-row justify-center gap-6 pt-10 pl-20 pr-20 pb-5">
         <li className="text-base font-semibold not-italic hover:underline  cursor-pointer bg-transparent"><Link className="bg-transparent" href="/">HOME</Link></li>
 

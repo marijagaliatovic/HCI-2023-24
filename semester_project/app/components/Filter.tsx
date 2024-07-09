@@ -14,9 +14,21 @@ export default function Filter({setData,data}:FilterProps){
     const[numberOfRooms,setNumberOfRooms] = useState(4);
     const [min,setMin] = useState<number>(50);
     const [max,setMax] = useState<number>(130);
+    const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+
+
+    useEffect(()=>{
+        if(isOverlayOpen){
+            document.body.classList.add("overlay-open");
+        }
+        else{
+            document.body.classList.remove("overlay-open");
+        }
+    },[isOverlayOpen])
 
     const handleFiltersClick = () =>{
         setIsFiltersOpen(!isFiltersOpen);
+        setIsOverlayOpen(!isOverlayOpen);
     }
 
     const handleNumberOfRoomsClick = (num:number) => {
@@ -46,6 +58,7 @@ export default function Filter({setData,data}:FilterProps){
             if(dropdown && !dropdown.contains(event.target as Node) && filters && !filters.contains(event.target as Node)) //If dropdown is not clicked (if event target is not on the dropdown ); Node is interface for nodes in DOM
             {
                 setIsFiltersOpen(false); //If we click outside of the filter container it will close it
+                setIsOverlayOpen(!isOverlayOpen);
             }
         };
 
@@ -92,7 +105,8 @@ export default function Filter({setData,data}:FilterProps){
           });
 
         setData(apartments);
-        setIsFiltersOpen(false);       
+        setIsFiltersOpen(false);
+        setIsOverlayOpen(!isOverlayOpen);       
     }
 
     const resetFilters = () =>{
@@ -127,9 +141,9 @@ export default function Filter({setData,data}:FilterProps){
             {(isFiltersOpen && (
                 <>
                     {/* Dark overlay on the background when filters drowpdown is open */}
-                    <div className="fixed top-0 left-0 w-full h-full bg-black opacity-50 z-20" onClick={handleFiltersClick}></div>
+                    <div className="fixed top-0 left-0 w-full h-full bg-black opacity-50 z-30" onClick={handleFiltersClick}></div>
                     {/*Filters Dropdown */}
-                    <div  id="filterDropdown" className="bg-slate-400 absolute z-50 top-0 self-center flex flex-col lg:w-max w-7/8 h-min lg:h-max shadow-lg lg:p-4 rounded-md lg:m-5">
+                    <div  id="filterDropdown" className="bg-slate-400 absolute z-50 -top-8 self-center flex flex-col lg:w-max w-7/8 h-min lg:h-max shadow-lg lg:p-4 rounded-md lg:m-5">
                         <div className="bg-transparent flex flex-row mx-10 py-4 items-center justify-start border-b-2 border-slate-200">
                             <div className="bg-transparent hover:bg-slate-200 rounded-full p-1" onClick={handleFiltersClick}><XMarkIcon className="w-4 h-4 bg-transparent" /></div>
                             <p className="bg-transparent font-bold flex-grow text-center">Filters</p>
