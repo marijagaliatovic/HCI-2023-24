@@ -26,13 +26,9 @@ const ApartmentPage = async ({ params }: Params) => {
       <Apartment key={apartmentId} apartment={{
         title: apartment.title,
         location: apartment.location,
-<<<<<<< HEAD
         information: apartment.information,
         whatWeOffer: apartment.whatWeOffer,
         priceNumber: apartment.priceNumber,
-=======
-        price: apartment.priceNumber,
->>>>>>> 4d181f626ba5ca3918cace740fcb7a31f55d3604
         apartmentId: apartment.apartmentId
       }} />
       </div>
