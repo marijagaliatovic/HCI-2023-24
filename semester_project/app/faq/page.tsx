@@ -99,7 +99,7 @@ export default function Faq() {
         </button>
         {openAnswer2 && (
           <p className="bg-white mt-5">
-           Cancellation policies vary between apartments and booking platforms. Some may offer free cancellation up to a certain date, while others might impose penalties for late cancellations or no-shows. Before making a reservation, it's crucial to review and understand the specific cancellation terms..
+           Cancellation policies vary between apartments and booking platforms. Some may offer free cancellation up to a certain date, while others might impose penalties for late cancellations or no-shows. Before making a reservation, it&apos;s crucial to review and understand the specific cancellation terms..
           </p>
         )}
         <hr className="mt-10"></hr>
@@ -123,7 +123,7 @@ export default function Faq() {
         </button>
         {openAnswer3 && (
           <p className="bg-white mt-5">
-            Each apartment may have different procedures for addressing maintenance concerns. Typically, you can contact the property manager or maintenance team directly for urgent issues. It's helpful to have their contact details readily available for quick assistance.
+            Each apartment may have different procedures for addressing maintenance concerns. Typically, you can contact the property manager or maintenance team directly for urgent issues. It&apos;s helpful to have their contact details readily available for quick assistance.
           </p>
         )}
         <hr className="mt-10"></hr>
