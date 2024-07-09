@@ -52,8 +52,4 @@ export default function SlideShow({ images }: SlideShowProps) {
   ) : (
     <div className="bg-white relative w-full basis-6/12 p-0 lg:p-8 lg:m-4 h-max "></div>
   );
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> 4d181f626ba5ca3918cace740fcb7a31f55d3604
+  }
