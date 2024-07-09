@@ -45,7 +45,7 @@ export default function Contact() {
       </div>
       <form
         onSubmit={handleSubmit}
-        className="bg-white mb-20 pt-10 pb-10 mx-5 sm:mx-auto md:mx-auto max-w-md px-12 rounded-md shadow-lg w-1/2 sm:w-2/3 w-4/5"
+        className="bg-white mb-10 pt-10 pb-10 mx-5 sm:mx-auto md:mx-auto max-w-md px-12 rounded-md shadow-lg sm:w-2/3 w-4/5"
       >
         <label className="bg-white block mb-2 text-sm font-semibold">
           Username:
