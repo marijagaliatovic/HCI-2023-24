@@ -26,14 +26,10 @@ export default function SpecialOffers() {
 
  
   return (
-<<<<<<< HEAD
-    <div className="flex flex-col min-h-screen">
-    <div className="bg-transparent flex flex-col items-center relative mt-0 lg:mt-12 lg:py-8 pb-4 w-full lg:max-content flex-grow">
-=======
+
     <>
     <NavBar/>
     <div className="bg-transparent flex flex-col items-center relative mt-0 lg:mt-12 lg:py-8 pb-4 ">
->>>>>>> 4d181f626ba5ca3918cace740fcb7a31f55d3604
       <h2 className="bg-transparent self-center font-bold not-italic text-xl lg:text-2xl mb-2 mt-4 lg:mt-10 ">
         Special Offers
       </h2>
@@ -43,9 +39,9 @@ export default function SpecialOffers() {
           <SpecialOfferItem key={index} {...offer} />
         ))}
       </div>
-      
+      <Footer/>
     </div>
-    <Footer/>
-    </div>
+    </>
+
   );
-}
+        }
