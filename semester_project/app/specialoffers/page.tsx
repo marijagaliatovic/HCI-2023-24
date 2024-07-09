@@ -32,7 +32,7 @@ export default function SpecialOffers() {
         Special Offers
       </h2>
       <div className="small-line"></div>
-      <div className="bg-transparent flex flex-col md:w-5/6 lg:flex-row flex-wrap items-center justify-center w-max lg:w-4/5 ml:w-full xl:w-4/5  relative lg:mx-20 lg:mt-4 lg:items-stretch">
+      <div className="flex md:w-full flex-col lg:flex-row flex-wrap items-center justify-center w-max  lg:w-11/12 xl:w-4/5  relative lg:mx-20 lg:mt-4 lg:items-stretch">
         {offers.map((offer, index) => (
           <SpecialOfferItem key={index} {...offer} />
         ))}

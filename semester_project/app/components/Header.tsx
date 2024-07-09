@@ -15,8 +15,9 @@ export default function Header() {
     setIsAccommodationOpen(false);
   };
 
-  const handleAccommodationClick = () =>{
+  const handleAccommodationClick = (item:number) =>{
     setIsAccommodationOpen(false);
+    setActiveItem(item);
   };
 
   const handleButtonClick = (item:number) => {
@@ -30,7 +31,7 @@ export default function Header() {
 
         <li className="text-base font-semibold not-italic relative  cursor-pointer bg-transparent" 
           onMouseEnter={handleAccommodationHover}
-          onMouseLeave={handleAccommodationLeave}> 
+          onMouseLeave={handleAccommodationLeave}>
           <div className="flex flex-row justify-center h-min">
             <a className="bg-transparent">ACCOMODATION</a>
             <svg height="26" viewBox="0 0 48 48" width="26" xmlns="http://www.w3.org/2000/svg" className={` bg-transparent ${isAccomodationOpen ? "rotate-180" : "rotate-0"}`}><path d="M33.17 17.17l-9.17 9.17-9.17-9.17-2.83 2.83 12 12 12-12z"/><path d="M0 0h48v48h-48z" fill="none"/></svg>
@@ -39,13 +40,13 @@ export default function Header() {
           {isAccomodationOpen && (
             <ul className="absolute z-10 left-1/2 transform -translate-x-1/2 p-2 w-52 bg-gray-400 rounded-md shadow-lg">
               <li className="bg-transparent">
-                <Link href="/apartmentlistings" className="bg-gray-400 block px-4 py-2 text-sm font-semibold hover:bg-slate-500 transition duration-300 ease-in-out rounded-md " onClick={handleAccommodationClick}>APARTMENT LISTINGS</Link>
+                <Link href="/apartmentlistings" className="bg-gray-400 block px-4 py-2 text-sm font-semibold hover:bg-slate-500 transition duration-300 ease-in-out rounded-md " onClick={()=>handleAccommodationClick(3)}>APARTMENT LISTINGS</Link>
               </li>
               <li className="bg-transparent">
-                <Link href="/specialoffers" className="bg-gray-400 block px-4 py-2 text-sm font-semibold hover:bg-slate-500 transition duration-300 ease-in-out rounded-md" onClick={handleAccommodationClick}>SPECIAL OFFERS</Link>
+                <Link href="/specialoffers" className="bg-gray-400 block px-4 py-2 text-sm font-semibold hover:bg-slate-500 transition duration-300 ease-in-out rounded-md" onClick={()=>handleAccommodationClick(3)}>SPECIAL OFFERS</Link>
               </li>
               <li className="bg-transparent">
-                <Link href="/reviews" className="bg-gray-400 block px-4 py-2 text-sm font-semibold hover:bg-slate-500 transition duration-300 ease-in-out rounded-md" onClick={handleAccommodationClick}>REVIEWS</Link>
+                <Link href="/reviews" className="bg-gray-400 block px-4 py-2 text-sm font-semibold hover:bg-slate-500 transition duration-300 ease-in-out rounded-md" onClick={()=>handleAccommodationClick(3)}>REVIEWS</Link>
               </li>
             </ul>
           )}
