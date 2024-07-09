@@ -30,8 +30,8 @@ export default function Signup() {
   const handleSubmit = () => {};
 
   return (
-    <>
-      <div className="flex flex-col items-center relative lg:mt-12 py-8">
+    <div className="min-h-screen flex flex-col">
+      <div className="flex flex-col items-center relative lg:mt-12 py-8 w-full lg:max-content flex-grow ">
         <h2 className="font-bold text-xl lg:text-2xl self-center lg:mt-10 top-24">
           Sign up
         </h2>
@@ -39,7 +39,7 @@ export default function Signup() {
       </div>
       <form
         onSubmit={handleSubmit}
-        className="bg-white mb-20 pb-10 mx-5 sm:mx-auto md:mx-auto max-w-md px-10 rounded-md shadow-lg"
+        className="bg-white mb-20 pb-10 mx-10 sm:mx-auto md:mx-auto max-w-md px-12 rounded-md shadow-lg w-1/2 sm:w-2/3 w-4/5"
       >
         <label className="bg-white block mb-2 text-sm pt-10 font-semibold">
           Create username:
@@ -82,7 +82,7 @@ export default function Signup() {
             Sign up
           </button>
         </div>
-        <p className="bg-white mt-10 text-center py-5 text-sm text-gray-300">
+        <p className="bg-white mt-10 text-center py-5 text-sm text-gray-400">
           Already have an account?&nbsp;
           <Link href="/login">
             <span className="bg-white font-semi-old hover:underline">
@@ -93,6 +93,6 @@ export default function Signup() {
       </form>
 
       <Footer />
-    </>
+    </div>
   );
 }

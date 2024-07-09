@@ -41,7 +41,7 @@ const BookNow = () => {
         <div className="bg-white relative p-2 font-bold rounded-full border-r-4 cursor-pointer hover:underline"  >
             <p className="bg-white"onClick={handleCheckInClick}>Dates</p>
         {
-            (isCheckInOpened && <DateRangePicker className="absolute z-10 -left-3/4 mt-6 customDataRangePicker shadow-2xl " onChange={(item) => setState([item.selection])}
+            (isCheckInOpened && <DateRangePicker className="absolute  z-10 -left-3/4 mt-6 customDataRangePicker shadow-2xl " onChange={(item) => setState([item.selection])}
                 moveRangeOnFirstSelection={false} months={2} ranges={state} direction="vertical"/>)
         }
         
