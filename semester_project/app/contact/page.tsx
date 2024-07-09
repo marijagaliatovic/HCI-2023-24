@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "@/node_modules/next/link";
 import { SetStateAction, useState } from "react";
 import Footer from "../components/Footer";
 

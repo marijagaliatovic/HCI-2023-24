@@ -1,5 +1,6 @@
 "use client"
 
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import SlideShow from "@/app/components/SlideShow";
 import BookNow from "@/app/components/BookNow";
@@ -10,12 +11,28 @@ import Footer from "./Footer";
 
 type ApartmentProps = {
   apartment: apartmentsItem;
+=======
+import React, { useEffect, useState } from "react";
+import SlideShow from "@/app/components/SlideShow";
+import BookNow from "@/app/components/BookNow";
+import contentfulService, { imagesCollection } from "@/lib/.contentfulClient";
+import NavBar from "./NavBar";
+
+type ApartmentProps = {
+  apartment: {
+    title: string;
+    location: string;
+    price: number;
+    apartmentId: string;
+  };
+>>>>>>> 4d181f626ba5ca3918cace740fcb7a31f55d3604
 };
 
 const Apartment = ({ apartment }: ApartmentProps) => {
   const [openInformation, setOpenInformation] = useState(false);
   const [openAmenities, setOpenAmenities] = useState(false);
   const [openReviews, setOpenReviews] = useState(false);
+<<<<<<< HEAD
   const [reviews, setReviews] = useState<reviewsItem[]>([]);
   const [allApartmentPhotos, setAllApartmentPhotos] = useState<imagesCollection | undefined>();
   const [loading, setLoading] = useState(true);
@@ -52,6 +69,24 @@ const Apartment = ({ apartment }: ApartmentProps) => {
     };
     fetchData();
   }, [apartment.apartmentId]);
+=======
+  const [allApartmentPhotos,setallApartmentPhotos] = useState<imagesCollection|undefined>();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(()=>{ const fetchData = async () => {
+    console.log("apartmentId: " + apartment.apartmentId);
+    try {
+      const data = await contentfulService.getAllPhotos(apartment.apartmentId);
+      setallApartmentPhotos(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    } finally { //executes whether it succeeds or we get an error
+      setLoading(false);
+    }
+  };
+    fetchData();
+  }, [])
+>>>>>>> 4d181f626ba5ca3918cace740fcb7a31f55d3604
 
   const toggleInformation = () => {
     setOpenInformation(!openInformation);
@@ -67,9 +102,15 @@ const Apartment = ({ apartment }: ApartmentProps) => {
 
   return (
     <>
+<<<<<<< HEAD
       <div className="bg-white mb-10 md:mb-10 pt-5 pb-10 mx-4 lg:rounded-md lg:mt-32 md:mx-auto lg:w-1/2 px-4 md:px-10 sm:mb-0">
         <div className="mx-auto bg-white md:mb-10 lg:mb-4">
           <SlideShow images={allApartmentPhotos} />
+=======
+      <div className="bg-white mb-20 pt-5 pb-10 mx-5 rounded-md mt-32 md:mx-auto w-1/2 px-10">
+        <div className="mx-auto bg-white">
+          <SlideShow images={allApartmentPhotos}/>
+>>>>>>> 4d181f626ba5ca3918cace740fcb7a31f55d3604
         </div>
         <div className="bg-white flex flex-col mb-10 md:flex-row ml-10">
           <div className="bg-white mb-4 md:mb-0">
@@ -170,3 +211,7 @@ const Apartment = ({ apartment }: ApartmentProps) => {
 };
 
 export default Apartment;
+function setallApartmentPhotos(data: import("@/lib/.contentfulClient").imagesCollection | undefined) {
+  throw new Error("Function not implemented.");
+}
+

@@ -51,7 +51,7 @@ const ApartmentListings = () => {
               No apartments match the selected filters.
             </div>
           ) : (
-            <div className="flex md:w-5/6 flex-col lg:flex-row flex-wrap items-center justify-center w-max lg:w-4/5 relative lg:mx-20 lg:mt-4 lg:items-stretch">
+            <div className="flex md:w-full flex-col lg:flex-row flex-wrap items-center justify-center w-max  lg:w-11/12 xl:w-4/5  relative lg:mx-20 lg:mt-4 lg:items-stretch">
               {/* {apartments.map((item) => (
                 <AccomodationItem key={} {...item} />
               ))} */}
