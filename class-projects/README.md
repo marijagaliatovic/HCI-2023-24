@@ -1,5 +1,7 @@
 # Class Projects Related Information
 
+- link for the report: https://www.notion.so/It-bookiraj-52896231879e4d8282f516db60dc144a
+
 References to class projects:
 
 - [Class project 1: [short title]](/class-projects/class-project-1/)
